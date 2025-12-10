@@ -1,0 +1,32 @@
+@font-face {
+    font-family: Aujournuit;
+    /* set name */
+    src: url(Aujournuit-Regular.otf);
+    /* url of the font */
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Aujournuit;
+}
+
+.main-box {
+    background-color: darkviolet;
+    width: 100%;
+    min-height: 500px;
+    max-width: 900px;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    padding: 15px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(border.png) 30 round;
+}
+
+h1 {
+    text-align: center;
+}
