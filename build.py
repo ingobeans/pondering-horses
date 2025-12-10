@@ -26,8 +26,13 @@ def get_games()->[[str,str,str]]:
 html = ""
 items = get_games()
 
+html += '<body class="games-body" style="margin:0"><link rel="stylesheet" href="style.css"><button onclick="javascript:left()" class="games-button">&lt;</button><div class="games-container">'
+
 for item in items:
-    html += f'<a href="{item[0]}"><div class="game-card"><img src="{item[1]}"><p>{item[3]}</p></div></a>'
+    html += f'<a class="game-card" href="{item[0]}"><div ><img src="{item[1]}"><p>{item[3]}</p></div></a>'
+html += '</div><button onclick="javascript:right()" class="games-button">&gt;</button></body>'
+html += '<script>function left() { window.scrollTo(window.scrollX-(450-68),500); }</script>'
+html += '<script>function right() { window.scrollTo(window.scrollX+(450-68),500); }</script>'
 
 with open("games.html","w") as f:
     f.write(html)
