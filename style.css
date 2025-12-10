@@ -73,14 +73,34 @@ img {
     box-shadow: 5px 5px 0px rgb(0, 0, 0);
 }
 
-.main-box {
+.main {
     background-color: darkviolet;
+}
+
+.box-container {
+    width: 100%;
+    max-width: 994px;
+    height: fit-content;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.small {
+    background-color: darkslategray;
+    float: left;
+}
+
+body .small~.small {
+    background-color: darkslateblue;
+    float: right;
+}
+
+.box {
     width: 100%;
     height: fit-content;
     min-height: 500px;
     max-width: 900px;
-    margin-left: 50%;
-    transform: translate(-50%, 0);
+    margin-bottom: 70px;
 
     border: 10px solid transparent;
     padding: 37px;
