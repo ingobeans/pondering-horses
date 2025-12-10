@@ -1,4 +1,4 @@
-import requests
+import requests,sys
 
 # a script to build some dynamically generated pages for this website!
 
@@ -23,6 +23,7 @@ def get_games()->[[str,str,str]]:
         print(e)
         return []
 
+# build games.html
 html = ""
 items = get_games()
 
@@ -36,3 +37,18 @@ html += '<script>function right() { window.scrollTo(window.scrollX+(450-68),500)
 
 with open("games.html","w") as f:
     f.write(html)
+print("built games.html!")
+
+# build index.html if publish build
+if "publish" in sys.argv:
+    print("publish flag set, removing debug lines!")
+    with open("index.html","r") as f:
+        text = f.read()
+    new = ""
+    for line in text.split("\n"):
+        if "publish.remove_line" in line:
+            continue
+        new += line + "\n"
+    with open("index.html","w") as f:
+        f.write(new)
+    print("built index.html!")

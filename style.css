@@ -59,7 +59,7 @@ b {
     box-shadow: none !important;
 }
 
-.john:has(iframe) {
+.john {
     width: min(728px, 100vw);
     height: min(90px, 12.367vw);
     background-color: #d9d9d9;
