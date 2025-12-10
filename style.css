@@ -10,6 +10,7 @@ body {
     color: white;
     font-family: Aujournuit;
     margin: 10px;
+    overflow-x: hidden;
 }
 
 /*
@@ -49,6 +50,14 @@ a {
     font-weight: bold;
 }
 
+b {
+    color: #3FD300;
+}
+
+.badge {
+    box-shadow: none !important;
+}
+
 div:has(iframe) {
     width: min(728px, 100vw);
     height: min(90px, 12.367vw);
@@ -56,6 +65,8 @@ div:has(iframe) {
     margin-left: 50%;
     transform: translate(-50%, 0);
     box-shadow: 5px 5px 0px rgb(0, 0, 0);
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 img {
@@ -70,14 +81,10 @@ img {
     max-width: 900px;
     margin-left: 50%;
     transform: translate(-50%, 0);
-    padding: 15px;
-    padding-top: 0;
-    padding-bottom: 0;
 
     border: 10px solid transparent;
     padding: 37px;
     padding-top: 0;
-    padding-bottom: 0;
     border-image: url(border.png) 30 round;
     border-image-width: 37px;
     box-shadow: 35px 35px 0px rgb(0, 0, 0);
