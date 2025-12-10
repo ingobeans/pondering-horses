@@ -49,9 +49,23 @@ a {
     font-weight: bold;
 }
 
+div:has(iframe) {
+    width: min(728px, 100vw);
+    height: min(90px, 12.367vw);
+    background-color: #d9d9d9;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+}
+
+img {
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+}
+
 .main-box {
     background-color: darkviolet;
     width: 100%;
+    height: fit-content;
     min-height: 500px;
     max-width: 900px;
     margin-left: 50%;
