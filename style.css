@@ -97,6 +97,7 @@ iframe {
     border-radius: 0;
     padding: 10px;
     font-family: inherit;
+    border: 0;
 }
 
 body .games-button~.games-button {
@@ -107,12 +108,21 @@ body .games-button~.games-button {
     display: inline-block;
     height: 400px;
     width: 315px;
-    background-color: wheat;
+    background-color: black;
     overflow: hidden;
     margin-right: 67px;
 }
 
-.game-card>img {}
+.game-card>div>p {
+    color: wheat !important;
+    text-decoration: none;
+
+    padding: 12px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    font-weight: normal !important;
+}
 
 img {
     box-shadow: 5px 5px 0px rgb(0, 0, 0);

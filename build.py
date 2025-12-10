@@ -26,7 +26,7 @@ def get_games()->[[str,str,str]]:
 html = ""
 items = get_games()
 
-html += '<body class="games-body" style="margin:0"><link rel="stylesheet" href="style.css"><button onclick="javascript:left()" class="games-button">&lt;</button><div class="games-container">'
+html += '<body class="games-body" style="margin:0"><base target="_parent" /><link rel="stylesheet" href="style.css"><button onclick="javascript:left()" class="games-button">&lt;</button><div class="games-container">'
 
 for item in items:
     html += f'<a class="game-card" href="{item[0]}"><div ><img src="{item[1]}"><p>{item[3]}</p></div></a>'
