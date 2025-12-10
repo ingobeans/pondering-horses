@@ -70,6 +70,12 @@ b {
     margin-top: 20px;
 }
 
+.icon {
+    box-shadow: none !important;
+    transform: translate(0, 11px);
+    margin-right: 5px;
+}
+
 iframe {
     border: none;
 }
