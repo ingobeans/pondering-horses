@@ -1,4 +1,5 @@
-import requests,sys
+from distutils.dir_util import copy_tree
+import requests,sys,os,shutil,subprocess
 
 # a script to build some dynamically generated pages for this website!
 
@@ -22,6 +23,33 @@ def get_games()->[[str,str,str]]:
     except Exception as e:
         print(e)
         return []
+
+
+if "bundle" in sys.argv:
+    print("bundling...")
+    if not os.path.isdir("temp"):
+        os.mkdir("temp")
+    else:
+        for item in os.listdir("temp"):
+            if item == ".git" or item == "temp":
+                continue
+            path = os.path.join("temp",item)
+            if os.path.isfile(path):
+                os.remove(path)
+            else:
+                shutil.rmtree(path)
+    for item in os.listdir():
+        if item == ".git" or item == "temp":
+            continue
+        path = os.path.join("temp",item)
+        if os.path.isfile(item):
+            shutil.copyfile(item,path)
+        else:
+            shutil.copytree(item,path)
+    os.chdir("temp")
+    subprocess.run(['python', 'build.py', "publish"])
+    shutil.make_archive("../bundle", 'zip', ".")
+    exit(0)
 
 # build games.html
 html = ""
