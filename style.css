@@ -16,6 +16,16 @@ body {
     background-image: url("images/background.png"), linear-gradient(325deg, rgb(28, 0, 55) 0%, rgb(207, 62, 182) 75%, rgb(240, 177, 225) 100%);
 }
 
+#biglogo {
+    box-shadow: none;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    max-width: 700px;
+    filter: drop-shadow(5px 5px 0 black);
+    margin-bottom: 15px;
+}
+
 /*
 Source - https://stackoverflow.com/a
 Posted by Vargr, modified by community. See post 'Timeline' for change history
