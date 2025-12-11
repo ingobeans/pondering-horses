@@ -103,7 +103,7 @@ iframe {
     height: 400px;
     background: none;
     background-color: #2f4f4f;
-    /* overflow-x: scroll; */
+    overflow: hidden;
     width: max-content;
 }
 
