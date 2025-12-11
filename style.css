@@ -10,8 +10,10 @@ body {
     color: white;
     font-family: Aujournuit;
     margin: 10px;
+    min-height: 100vh;
     overflow-x: hidden;
-    background-image: url("background.png");
+    /*! background: #1C0037; */
+    background-image: url("background.png"), linear-gradient(325deg, rgb(28, 0, 55) 0%, rgb(207, 62, 182) 75%, rgb(240, 177, 225) 100%);
 }
 
 /*
@@ -88,6 +90,7 @@ iframe {
 .games-container,
 .games-body {
     height: 400px;
+    background: none;
     background-color: #2f4f4f;
     /* overflow-x: scroll; */
     width: max-content;
