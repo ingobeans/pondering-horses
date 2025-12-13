@@ -126,7 +126,8 @@ iframe {
 
 @media (max-width: 1700px) {
     .bubble {
-        display: none;
+        display: inline-block;
+        position: unset !important;
     }
 }
 
@@ -222,12 +223,13 @@ img {
 
 .small {
     background-color: darkslategray;
-    float: left;
+    display: inline-block;
+    flex-shrink: 0;
 }
 
 body .small~.small {
     background-color: darkslateblue;
-    float: right;
+    display: inline-block;
 }
 
 .box {
