@@ -55,7 +55,8 @@ hr {
     color: white;
 }
 
-p {
+p,
+span {
     font-size: 20px;
 }
 
@@ -99,14 +100,18 @@ iframe {
     white-space: nowrap;
     overflow: hidden;
     height: 2lh;
-    transform: translate(0,1lh);
+    transform: translate(0, 1lh);
+    font-size: 20px;
 }
+
 .wave span {
     display: inline-block;
     padding: 0;
     animation: wave-animation 2.5s ease-in-out infinite;
+    transform: translateY(5px);
     animation-delay: calc(var(--i) * 0.1s);
 }
+
 @keyframes wave-animation {
 
     0%,
