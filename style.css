@@ -27,6 +27,22 @@ body {
     margin-right: auto;
 }
 
+div:has(.side-goblin) {
+    position: absolute;
+    top: 500px;
+    width: 100%;
+    height: 114px;
+    overflow-x: hidden;
+}
+
+.side-goblin {
+    position: absolute;
+    box-shadow: none;
+    display: inline;
+    right: calc((100% - 900px) / 2 - 111px);
+    z-index: 10;
+}
+
 /*
 Source - https://stackoverflow.com/a
 Posted by Vargr, modified by community. See post 'Timeline' for change history
