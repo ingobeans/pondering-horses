@@ -97,24 +97,25 @@ iframe {
 .wave {
     display: inline-block;
     white-space: nowrap;
+    overflow: hidden;
+    height: 2lh;
+    transform: translate(0,1lh);
 }
-
 .wave span {
     display: inline-block;
     padding: 0;
     animation: wave-animation 2.5s ease-in-out infinite;
     animation-delay: calc(var(--i) * 0.1s);
 }
-
 @keyframes wave-animation {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(5px);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
     }
 }
 
