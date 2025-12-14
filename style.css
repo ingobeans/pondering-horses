@@ -16,15 +16,22 @@ body {
     background-image: url("images/background.png"), linear-gradient(325deg, rgb(28, 0, 55) 0%, rgb(207, 62, 182) 75%, rgb(240, 177, 225) 100%);
 }
 
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 #biglogo {
     box-shadow: none;
     width: 100%;
     max-width: 700px;
     filter: drop-shadow(5px 5px 0 black);
-    margin: 15px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding: 15px;
 }
 
 div:has(.side-goblin) {
