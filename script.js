@@ -44,10 +44,10 @@ function update(now) {
                 s[1] = -30;
             }
         }
-        s[0] += 1;
-        s[1] += 1;
-        s[0] += s[2] * (Math.cos(s[3] + s[5] * (Math.sin(s[4]) + 1.0) / 2.0));
-        s[1] += s[2] * (Math.sin(s[3] + s[5] * (Math.sin(s[4]) + 1.0) / 2.0));
+        s[0] += 1 * deltaTime / 1000.0 * 75.0;
+        s[1] += 1 * deltaTime / 1000.0 * 75.0;
+        s[0] += s[2] * (Math.cos(s[3] + s[5] * (Math.sin(s[4]) + 1.0) / 2.0)) * deltaTime / 1000.0 * 75.0;
+        s[1] += s[2] * (Math.sin(s[3] + s[5] * (Math.sin(s[4]) + 1.0) / 2.0)) * deltaTime / 1000.0 * 75.0;
 
         s[4] += deltaTime / 1000;
 
