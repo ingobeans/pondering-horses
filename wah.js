@@ -1,7 +1,7 @@
-// general javascript for the website
+// this script contains general javascript for the website
 
+// draw splash text
 const splashTextElement = document.getElementById("splash");
-
 const texts = [
     "hello there!",
     "did you know? most people experience <a href='https://en.wikipedia.org/wiki/Bees'>bees</a>",
@@ -12,7 +12,7 @@ const texts = [
     "nobody stops you from brushing your teeth thrice in a day!",
     "the <em>wizard</em> is in containment",
     "all profits of this website go directly to YOU",
-    "microsoft approved"
+    "microsoft approved",
 ];
 
 splashTextElement.innerHTML = texts[Math.floor(Math.random() * texts.length)];

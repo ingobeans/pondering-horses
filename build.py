@@ -59,9 +59,11 @@ html += '<body class="games-body" style="margin:0"><base target="_parent" /><lin
 
 for item in items:
     html += f'<a class="game-card" href="{item[0]}"><div ><img src="{item[1]}"><p>{item[3]}</p></div></a>'
-html += '</div><button onclick="javascript:right()" class="games-button">&gt;</button></body>'
+html += '</div><button onclick="javascript:right()" class="games-button">&gt;</button>'
 html += '<script>function left() { window.scrollTo(window.scrollX-(450-68),500); }</script>'
 html += '<script>function right() { window.scrollTo(window.scrollX+(450-68),500); }</script>'
+html += '<noscript><style>button { display: none;} .games-body {overflow-x: auto !important;}</style></noscript>'
+html += '</body>'
 
 with open("games.html","w") as f:
     f.write(html)
