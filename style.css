@@ -32,6 +32,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 div:has(#splash) {
