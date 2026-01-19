@@ -92,3 +92,14 @@ if "publish" in sys.argv:
     with open("index.html","w") as f:
         f.write(new)
     print("built index.html!")
+
+    # remove games.html from .gitignore
+    with open(".gitignore","r") as f:
+        gitignore = f.read()
+    newgitignore = ""
+    for line in gitignore.split("\n"):
+        if not "games.html" in line:
+            newgitignore += line +"\n"
+    with open(".gitignore","w") as f:
+        f.write(newgitignore)
+    print("removed games.html from .gitignore!")
