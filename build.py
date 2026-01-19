@@ -107,5 +107,5 @@ if "publish" in sys.argv:
     if input("commit and push? Y/n: ").lower() != "n":
         os.system("git add .")
         os.system('git commit -m "publish with build.py"')
-        os.system("git push origin main")
+        os.system("git push origin gh-pages --force")
         print("publish completed!!")
