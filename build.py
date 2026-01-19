@@ -109,3 +109,7 @@ if "publish" in sys.argv:
         os.system('git commit -m "publish with build.py"')
         os.system("git push origin gh-pages --force")
         print("publish completed!!")
+        
+    if in_gh_pages:
+        if input("return to branch main? Y/n: ").lower() != "n":
+            os.system("git checkout main")
