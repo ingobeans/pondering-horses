@@ -71,6 +71,16 @@ print("built games.html!")
 
 # build index.html if publish build
 if "publish" in sys.argv:
+    branch_name = subprocess.check_output(["git","rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8")
+    in_gh_pages = "gh-pages" in branch_name
+    if not in_gh_pages:
+        if input("not in branch gh-pages, do you want to go there? Y/n: ").lower() != "n":
+            os.system("git checkout gh-pages")
+            in_gh_pages = True
+
+    if in_gh_pages and input("pull main branch? Y/n: ").lower() != "n":
+        os.system("git reset origin/main --hard")
+
     print("publish flag set, removing debug lines!")
     with open("index.html","r") as f:
         text = f.read()
