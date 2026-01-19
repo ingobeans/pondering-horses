@@ -112,4 +112,5 @@ if "publish" in sys.argv:
         
     if in_gh_pages:
         if input("return to branch main? Y/n: ").lower() != "n":
+            os.system("git restore .")
             os.system("git checkout main")
