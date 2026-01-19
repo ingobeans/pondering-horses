@@ -103,3 +103,9 @@ if "publish" in sys.argv:
     with open(".gitignore","w") as f:
         f.write(newgitignore)
     print("removed games.html from .gitignore!")
+    
+    if input("commit and push? Y/n: ").lower() != "n":
+        os.system("git add .")
+        os.system('git commit -m "publish with build.py"')
+        os.system("git push origin main")
+        print("publish completed!!")
