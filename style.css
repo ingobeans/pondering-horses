@@ -141,6 +141,12 @@ b {
     box-shadow: none !important;
 }
 
+.thingy-of-note {
+    border-left: solid 1px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
 .john {
     width: min(728px, 100vw);
     height: min(90px, 12.367vw);
