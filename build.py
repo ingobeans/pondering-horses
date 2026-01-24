@@ -65,9 +65,6 @@ html += '<script>function right() { window.scrollTo(window.scrollX+(450-68),500)
 html += '<noscript><style>button { display: none;} .games-body {overflow-x: auto !important;}</style></noscript>'
 html += '</body>'
 
-with open("games.html","w") as f:
-    f.write(html)
-print("built games.html!")
 
 # build index.html if publish build
 if "publish" in sys.argv:
@@ -80,6 +77,11 @@ if "publish" in sys.argv:
 
     if in_gh_pages and input("pull main branch? Y/n: ").lower() != "n":
         os.system("git reset origin/main --hard")
+
+    
+    with open("games.html","w") as f:
+        f.write(html)
+    print("built games.html!")
 
     print("publish flag set, removing debug lines!")
     with open("index.html","r") as f:
@@ -114,3 +116,7 @@ if "publish" in sys.argv:
         if input("return to branch main? Y/n: ").lower() != "n":
             os.system("git restore .")
             os.system("git checkout main")
+else:
+    with open("games.html","w") as f:
+        f.write(html)
+    print("built games.html!")
