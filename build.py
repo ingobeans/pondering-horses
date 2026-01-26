@@ -65,17 +65,18 @@ html += '<script>function right() { window.scrollTo(window.scrollX+(450-68),500)
 html += '<noscript><style>button { display: none;} .games-body {overflow-x: auto !important;}</style></noscript>'
 html += '</body>'
 
+yes_to_all = "yes" in sys.argv
 
 # build index.html if publish build
 if "publish" in sys.argv:
     branch_name = subprocess.check_output(["git","rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8")
     in_gh_pages = "gh-pages" in branch_name
     if not in_gh_pages:
-        if input("not in branch gh-pages, do you want to go there? Y/n: ").lower() != "n":
+        if yes_to_all or input("not in branch gh-pages, do you want to go there? Y/n: ").lower() != "n":
             os.system("git checkout gh-pages")
             in_gh_pages = True
 
-    if in_gh_pages and input("pull main branch? Y/n: ").lower() != "n":
+    if in_gh_pages and (yes_to_all or input("pull main branch? Y/n: ").lower() != "n"):
         os.system("git reset origin/main --hard")
 
     
@@ -106,16 +107,15 @@ if "publish" in sys.argv:
         f.write(newgitignore)
     print("removed games.html from .gitignore!")
     
-    if input("commit and push? Y/n: ").lower() != "n":
+    if yes_to_all or input("commit and push? Y/n: ").lower() != "n":
         os.system("git add .")
         os.system('git commit -m "publish with build.py"')
         os.system("git push origin gh-pages --force")
         print("publish completed!!")
         
-    if in_gh_pages:
-        if input("return to branch main? Y/n: ").lower() != "n":
-            os.system("git restore .")
-            os.system("git checkout main")
+    if in_gh_pages and (yes_to_all or input("return to branch main? Y/n: ").lower() != "n"):
+        os.system("git restore .")
+        os.system("git checkout main")
 else:
     with open("games.html","w") as f:
         f.write(html)
