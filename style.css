@@ -154,6 +154,11 @@ pagering-link {
     padding-top: 1px;
 }
 
+.imgshadow {
+    box-shadow: none;
+    filter: drop-shadow(5px 5px 0 black);
+}
+
 .john {
     width: min(728px, 100vw);
     height: min(90px, 12.367vw);
