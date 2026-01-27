@@ -138,6 +138,9 @@ a:has(game) {
     width: 315px;
     overflow: hidden;
     padding: 7px;
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
 }
 
 b {
