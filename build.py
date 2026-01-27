@@ -55,15 +55,8 @@ if "bundle" in sys.argv:
 html = ""
 items = get_games()
 
-html += '<body class="games-body" style="margin:0"><base target="_parent" /><link rel="stylesheet" href="style.css"><button onclick="javascript:left()" class="games-button">&lt;</button><div class="games-container">'
-
 for item in items:
-    html += f'<a class="game-card" href="{item[0]}"><div ><img src="{item[1]}"><p>{item[3]}</p></div></a>'
-html += '</div><button onclick="javascript:right()" class="games-button">&gt;</button>'
-html += '<script>function left() { window.scrollTo(window.scrollX-(450-68),500); }</script>'
-html += '<script>function right() { window.scrollTo(window.scrollX+(450-68),500); }</script>'
-html += '<noscript><style>button { display: none;} .games-body {overflow-x: auto !important;}</style></noscript>'
-html += '</body>'
+    html += f'<a href="{item[0]}"><game><img src="{item[1]}"><p>{item[3]}</p></card></a>'
 
 yes_to_all = "yes" in sys.argv
 
@@ -83,6 +76,11 @@ if "publish" in sys.argv:
     with open("games.html","w") as f:
         f.write(html)
     print("built games.html!")
+    with open("projects_template.html","r") as f:
+        projects_template = f.read()
+    with open("projects.html","w") as f:
+        f.write(projects_template.replace("<!-- insert.games -->",html))
+    print("built projects.html!")
 
     print("publish flag set, removing debug lines!")
     with open("index.html","r") as f:
@@ -101,7 +99,7 @@ if "publish" in sys.argv:
         gitignore = f.read()
     newgitignore = ""
     for line in gitignore.split("\n"):
-        if not "games.html" in line:
+        if not "games.html" in line and not "projects.html" in line:
             newgitignore += line +"\n"
     with open(".gitignore","w") as f:
         f.write(newgitignore)
@@ -120,3 +118,8 @@ else:
     with open("games.html","w") as f:
         f.write(html)
     print("built games.html!")
+    with open("projects_template.html","r") as f:
+        projects_template = f.read()
+    with open("projects.html","w") as f:
+        f.write(projects_template.replace("<!-- insert.games -->",html))
+    print("built projects.html!")
