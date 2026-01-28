@@ -350,9 +350,32 @@ img {
     flex-shrink: 0;
 }
 
-body .small~.small {
-    background-color: darkslateblue;
+.microblog {
+    height: calc(100% - 3em);
+    overflow-y: auto;
+}
+
+post {
+    background-color: rgba(0, 0, 0, 0.151);
     display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+post>span {
+    font-size: smaller;
+}
+
+.right-boxes {
+    height: 700px;
+}
+
+.right-boxes>.small {
+    background-color: darkslateblue;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .box {
