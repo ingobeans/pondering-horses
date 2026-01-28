@@ -149,6 +149,20 @@ b {
 
 .badge {
     box-shadow: none !important;
+    width: 88px;
+    height: 31px;
+}
+
+.badge-container {
+    overflow: hidden;
+    padding: 20px;
+    margin-top: -35px;
+    margin-bottom: -20px;
+    margin-left: -20px;
+}
+
+.badge:hover {
+    transform: scale(1.2);
 }
 
 .thingy-of-note {
