@@ -1,5 +1,5 @@
 from distutils.dir_util import copy_tree
-import requests,sys,os,shutil,subprocess
+import requests,sys,os,shutil,subprocess,re
 
 # a script to build some dynamically generated pages for this website!
 
@@ -24,6 +24,19 @@ def get_games()->[[str,str,str]]:
         print(e)
         return []
 
+def replace_emojis(text:str)->str:
+    pattern = r":([a-z]*):"
+    sub = r"<img class='emoji' src='./emojis/\1.gif'>"
+    new = re.sub(pattern,sub,text)
+    return new
+
+if "test" in sys.argv:
+    with open("index.html","r") as f:
+        g = f.read()
+    n = replace_emojis(g)
+    with open("test.html","w") as f:
+        f.write(n)
+    quit()
 
 if "bundle" in sys.argv:
     print("bundling...")

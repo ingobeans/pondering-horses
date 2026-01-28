@@ -350,6 +350,17 @@ img {
     flex-shrink: 0;
 }
 
+.emoji {
+    box-shadow: none;
+    width: 25px;
+    transform: translateY(5px);
+
+    /* re-enable aliasing */
+
+    image-rendering: unset !important;
+    -ms-interpolation-mode: unset !important;
+}
+
 .microblog {
     height: calc(100% - 3em);
     overflow-y: auto;
