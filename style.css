@@ -139,6 +139,7 @@ a:has(game) {
     color: white;
     text-decoration: none;
     font-weight: normal;
+    width: 259px;
 }
 
 b {
@@ -266,6 +267,11 @@ iframe {
     position: absolute;
 }
 
+game:hover {
+    width: 300px;
+    transform: translateX(-10px);
+}
+
 game {
     background-color: rgb(0, 0, 0);
     width: 259px;
@@ -284,6 +290,7 @@ game>p {
     padding-top: 7px;
     padding-bottom: 0;
     margin: 0;
+    width: calc(259px - 14px);
 }
 
 #games {
