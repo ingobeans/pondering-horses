@@ -107,6 +107,17 @@ if "publish" in sys.argv:
         f.write(new)
     print("built index.html!")
 
+    print("substituting emojis...")
+    for file in os.listdir():
+        if file.endswith(".html"):
+            with open(file,"r") as f:
+                g = f.read()
+            n = replace_emojis(g)
+            with open(file,"w") as f:
+                f.write(n)
+            print(file+"...",end="")
+    print("\nemoji substitution completed! :yay:")
+
     # remove games.html from .gitignore
     with open(".gitignore","r") as f:
         gitignore = f.read()
