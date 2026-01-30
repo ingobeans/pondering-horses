@@ -1,10 +1,11 @@
 let windows = document.getElementsByClassName("window-decoration");
 var arr = Array.prototype.slice.call(windows);
 
-let lastDragged = null;
 let dragging = null;
 let draggingOffset = [0, 0];
 let mouse = [0, 0];
+
+var currentZIndex = 100;
 
 let fakebody = document.getElementById("fakebody");
 let bounding = document.body.getBoundingClientRect();
@@ -34,12 +35,8 @@ for (let windowBar of windows) {
     windowBar.addEventListener("mousedown", (event) => {
         document.body.style.pointerEvents = "none";
         pauseEvent(event || windowBar.event);
-        if (lastDragged != null) {
-            lastDragged.style.zIndex = 300;
-        }
         let parent = windowBar.parentElement;
         dragging = parent;
-        lastDragged = dragging;
         let bounding = parent.getBoundingClientRect();
         let containerBounding = parent.parentElement.getBoundingClientRect();
         draggingOffset = [-containerBounding.left + bounding.left - mouse[0] - 6.0, -containerBounding.top + bounding.top - mouse[1] - 6.0];
@@ -53,7 +50,8 @@ for (let windowBar of windows) {
         parent.style.position = "absolute";
         parent.style.left = draggingOffset[0] + mouse[0] + "px";
         parent.style.top = draggingOffset[1] + mouse[1] + "px";
-        parent.style.zIndex = 500;
+        parent.style.zIndex = currentZIndex;
+        currentZIndex += 1;
     })
 };
 document.addEventListener("mouseup", (_) => {
