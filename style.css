@@ -16,6 +16,10 @@ body {
     background-image: url("images/background.png"), linear-gradient(325deg, rgb(28, 0, 55) 0%, rgb(91, 28, 155) 75%, rgb(235, 255, 139) 100%);
 }
 
+.projects {
+    background-image: url("images/background.png"), linear-gradient(-325deg, rgb(0, 35, 55) 0%, rgb(28, 47, 155) 45%, rgb(56, 169, 235) 100%);
+}
+
 #canvas {
     position: absolute;
     top: 0;
