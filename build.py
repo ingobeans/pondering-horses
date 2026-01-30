@@ -69,7 +69,7 @@ html = ""
 items = get_games()
 
 for item in items:
-    html += f'<a href="{item[0]}"><game><img src="{item[1]}"><p>{item[3]}</p></card></a>'
+    html += f'<game><div class="window-decoration">{item[0].split("/")[-1]}</div><a href="{item[0]}"><img src="{item[1]}"><p>{item[3]}</p></a></game>'
 
 yes_to_all = "yes" in sys.argv
 
