@@ -32,6 +32,7 @@ let mineAmt = Math.floor(mineDensity * tilesWidth * tilesWidth);
 // all other values in the grid represent the amount of neighbouring mines
 const MINE = 123;
 
+const FLAG_CHAR = "⚑";
 
 const DIRECTIONS = [
     [1, 0],
@@ -140,7 +141,15 @@ function pressTile(event) {
     let element = event.target;
     let id = [...element.parentElement.children].indexOf(element);
 
-    if (element.innerHTML == "") {
+    if (event.buttons == 2 && (element.innerHTML == "" || element.innerHTML.includes(FLAG_CHAR))) {
+        let flagPresent = element.innerHTML != "";
+        if (flagPresent) {
+            element.innerHTML = "";
+        } else {
+            element.innerHTML = "<p class='flag'>" + FLAG_CHAR + "</p>";
+        }
+    }
+    else if (event.buttons == 1 && element.innerHTML == "") {
         let x = Math.floor(id % tilesWidth);
         let y = Math.floor(id / tilesWidth);
 
