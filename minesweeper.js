@@ -16,12 +16,8 @@ container.style.width = containerSize + "px";
 container.style.height = containerSize + "px";
 let tilesWidth = Math.floor(containerSize / size);
 
-let text = "";
-for (i = 0; i < tilesWidth; i++) {
-    text += " 16px";
-}
-container.style.gridTemplateColumns = text;
-container.style.gridTemplateRows = text;
+container.style.gridTemplateColumns = "repeat(" + tilesWidth + ",16px)";
+container.style.gridTemplateRows = "repeat(" + tilesWidth + ",16px)";
 
 let grid = [];
 
