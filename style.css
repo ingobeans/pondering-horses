@@ -312,13 +312,17 @@ iframe {
     transform: translate(-6px, -13px);
 }
 
-.mineMine {
-    color: black;
-}
-
 #minesweeper-container>div:has(p) {
     background-color: rgb(150, 150, 153);
     outline: solid 1px black;
+}
+
+.flag {
+    color: red;
+}
+
+.mineMine {
+    color: black;
 }
 
 .mine0 {
