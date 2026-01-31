@@ -296,6 +296,7 @@ game>a {
     width: calc(100% - 14px);
     padding: 11px;
     padding-top: 0;
+    margin-bottom: 0;
 }
 
 .window-box>p>a {

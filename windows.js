@@ -17,8 +17,7 @@ fakebody.style.position = "absolute";
 fakebody.style.overflow = "hidden";
 fakebody.style.pointerEvents = "auto";
 
-addEventListener("resize", (event) => {
-    console.log(2);
+addEventListener("resize", (_) => {
     fakebody.style.width = window.innerWidth + "px";
     fakebody.style.height = document.body.clientHeight + "px";
 });
@@ -39,14 +38,22 @@ for (let windowBar of windows) {
         dragging = parent;
         let bounding = parent.getBoundingClientRect();
         let containerBounding = parent.parentElement.getBoundingClientRect();
-        draggingOffset = [-containerBounding.left + bounding.left - mouse[0] - 6.0, -containerBounding.top + bounding.top - mouse[1] - 6.0];
+        let style = getComputedStyle(parent);
+        draggingOffset = [-containerBounding.left + bounding.left - mouse[0] - 0.0, -containerBounding.top + bounding.top - mouse[1] - 0.0];
         if (parent.style.position != "absolute") {
-            let ghost = document.createElement("game");
+            let ghost = document.createElement("div");
+            ghost.style.width = parent.offsetWidth + "px";
+            ghost.style.height = parent.offsetHeight + "px";
+            ghost.style.display = "inline-block";
             ghost.style.visibility = "hidden";
+            ghost.style.margin = style.margin;
+            ghost.style.padding = style.padding;
             parent.parentElement.insertBefore(ghost, parent);
             fakebody.appendChild(parent);
-            draggingOffset = [bounding.left - mouse[0] - 6.0, bounding.top - mouse[1] + window.scrollY - 6.0];
+            draggingOffset = [bounding.left - mouse[0] - 0.0, bounding.top - mouse[1] + window.scrollY - 0.0];
         }
+        parent.style.margin = "unset";
+        parent.style.transform = "unset";
         parent.style.position = "absolute";
         parent.style.left = draggingOffset[0] + mouse[0] + "px";
         parent.style.top = draggingOffset[1] + mouse[1] + "px";
