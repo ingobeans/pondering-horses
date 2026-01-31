@@ -49,6 +49,9 @@ function resetGame() {
     gameState = NOT_GENERATED;
     for (let child of container.children) {
         child.innerHTML = "";
+        if (child.style.backgroundColor == "red") {
+            child.style.backgroundColor = "";
+        }
     }
 }
 
