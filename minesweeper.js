@@ -107,6 +107,19 @@ function showTileXY(x, y) {
     let id = x + y * tilesWidth;
     let e = container.children[id];
     let value = grid[x][y];
+
+    let flag = e.innerHTML.includes(FLAG_CHAR);
+    if (flag) {
+        if (value == MINE) {
+            return;
+        } else {
+            e.innerHTML = "<p class='flag'>x</p>";
+            return;
+        }
+
+    }
+
+
     let classText = value == MINE ? "Mine" : value.toString();
     let text = value == MINE ? "x" : value.toString();
     e.innerHTML = "<p class='mine" + classText + "'>" + text + "</p>";
