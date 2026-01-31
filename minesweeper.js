@@ -8,6 +8,7 @@ let size = 16;
 const NOT_GENERATED = 0;
 const RUNNING = 1;
 const LOSE = 2;
+const WIN = 3;
 
 let gameState = NOT_GENERATED;
 
@@ -26,7 +27,7 @@ let grid = [];
 
 let cheats = false;
 
-let mineDensity = 0.02;
+let mineDensity = 0.2;
 let mineAmt = Math.floor(mineDensity * tilesWidth * tilesWidth);
 counter.innerText = mineAmt.toString();
 
@@ -49,6 +50,8 @@ const DIRECTIONS = [
 
 function resetGame() {
     gameState = NOT_GENERATED;
+    textStatus.innerText = "minesweep";
+    counter.innerText = mineAmt.toString();
     for (let child of container.children) {
         child.innerHTML = "";
         if (child.style.backgroundColor == "red") {
@@ -140,6 +143,23 @@ function revealAllTiles() {
         }
     }
 }
+function checkIfWin() {
+    for (i = 0; i < tilesWidth; i++) {
+        for (j = 0; j < tilesWidth; j++) {
+            if (grid[i][j] == MINE) {
+                let id = i + j * tilesWidth;
+                if (!container.children[id].innerHTML.includes(FLAG_CHAR)) {
+                    console.log(i, j);
+                    return;
+                }
+            }
+        }
+    }
+    // win!!
+    gameState = WIN;
+    textStatus.innerHTML = "you win !! <img class='emoji' src='./emojis/yay.gif'>";
+    revealAllTiles();
+}
 function pressTile(event) {
     if (gameState == LOSE) {
         return;
@@ -167,8 +187,12 @@ function pressTile(event) {
             counter.innerText = (parseInt(counter.innerText) + 1).toString();
             element.innerHTML = "";
         } else {
-            counter.innerText = (parseInt(counter.innerText) - 1).toString();
+            let amt = parseInt(counter.innerText) - 1;
+            counter.innerText = amt.toString();
             element.innerHTML = "<p class='flag'>" + FLAG_CHAR + "</p>";
+            if (amt == 0) {
+                checkIfWin();
+            }
         }
     }
     else if (event.buttons == 1 && element.innerHTML == "") {
