@@ -146,7 +146,8 @@ function revealAllTiles() {
 function revealMines() {
     for (i = 0; i < tilesWidth; i++) {
         for (j = 0; j < tilesWidth; j++) {
-            if (grid[i][j] == MINE) {
+            let id = i + j * tilesWidth;
+            if (grid[i][j] == MINE || container.children[id].innerHTML.includes(FLAG_CHAR)) {
                 showTileXY(i, j);
             }
         }
