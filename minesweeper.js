@@ -50,11 +50,26 @@ function showTileID(id) {
     let y = Math.floor(id / tilesWidth);
     showTileXY(x, y);
 }
-
 function pressTile(event) {
+    function recursiveExpand(x, y) {
+        showTileXY(x, y);
+        if (grid[x][y] == 0) {
+            // if tile is completely empty, recursively click all neighbouring tiles (that are also 0)
+            for (let dir of DIRECTIONS) {
+                let tx = x + dir[0];
+                let ty = y + dir[1];
+                if (tx >= 0 && ty >= 0 && tx < tilesWidth && ty < tilesWidth && container.children[tx + ty * tilesWidth].innerHTML == "") {
+                    recursiveExpand(tx, ty);
+                }
+            }
+        }
+    }
+
     let element = event.target;
     let id = [...element.parentElement.children].indexOf(element);
-    showTileID(id);
+    let x = Math.floor(id % tilesWidth);
+    let y = Math.floor(id / tilesWidth);
+    recursiveExpand(x, y);
 }
 
 for (i = 0; i < tilesWidth; i++) {
