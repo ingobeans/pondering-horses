@@ -63,6 +63,11 @@ function generateGrid() {
     for (i = 0; i < mineAmt; i++) {
         let x = Math.floor(Math.random() * tilesWidth);
         let y = Math.floor(Math.random() * tilesWidth);
+
+        if (grid[x][y] == MINE) {
+            i += 1;
+            continue;
+        }
         // set mine
         grid[x][y] = MINE;
 
