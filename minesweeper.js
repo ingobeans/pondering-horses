@@ -4,10 +4,11 @@ let textStatus = document.getElementById("minesweeper-text");
 let containerSize = 304;
 let size = 16;
 
+const NOT_GENERATED = 0;
 const RUNNING = 1;
 const LOSE = 2;
 
-let gameState = RUNNING;
+let gameState = NOT_GENERATED;
 
 container.style.width = containerSize + "px";
 container.style.height = containerSize + "px";
@@ -43,18 +44,33 @@ const DIRECTIONS = [
     [-1, -1]
 ];
 
-function generateGrid() {
+function resetGame() {
+    gameState = NOT_GENERATED;
+    for (let child of container.children) {
+        child.innerHTML = "";
+    }
+}
+
+function hasNeighbour(sourceX, sourceY, neighbourX, neighbourY) {
+    for (let dir of DIRECTIONS) {
+        let tx = sourceX + dir[0];
+        let ty = sourceY + dir[1];
+        if (tx == neighbourX && ty == neighbourY) {
+            return true
+        }
+    }
+    return false
+}
+
+function generateGrid(safeX, safeY) {
+    // generates a grid, with position (safeX, safeY) being guaranteed clear
+
     gameState = RUNNING;
     textStatus.textContent = "minesweep";
-    container.innerHTML = "";
     grid = [];
     for (i = 0; i < tilesWidth; i++) {
         let row = [];
         for (j = 0; j < tilesWidth; j++) {
-            let newE = document.createElement("div");
-            newE.addEventListener("mousedown", pressTile);
-            container.appendChild(newE);
-
             row.push(0);
         }
         grid.push(row)
@@ -64,10 +80,11 @@ function generateGrid() {
         let x = Math.floor(Math.random() * tilesWidth);
         let y = Math.floor(Math.random() * tilesWidth);
 
-        if (grid[x][y] == MINE) {
+        if ((x == safeX && y == safeY) || grid[x][y] == MINE || hasNeighbour(x, y, safeX, safeY)) {
             i += 1;
             continue;
         }
+
         // set mine
         grid[x][y] = MINE;
 
@@ -103,7 +120,7 @@ function revealAllTiles() {
     }
 }
 function pressTile(event) {
-    if (gameState != RUNNING) {
+    if (gameState == LOSE) {
         return;
     }
     function recursiveExpand(x, y) {
@@ -127,6 +144,11 @@ function pressTile(event) {
         let x = Math.floor(id % tilesWidth);
         let y = Math.floor(id / tilesWidth);
 
+
+        if (gameState == NOT_GENERATED) {
+            generateGrid(x, y);
+        }
+
         if (grid[x][y] == MINE) {
             textStatus.textContent = "you lose !";
             revealAllTiles();
@@ -138,7 +160,17 @@ function pressTile(event) {
     }
 }
 
-generateGrid();
+for (i = 0; i < tilesWidth; i++) {
+    let row = [];
+    for (j = 0; j < tilesWidth; j++) {
+        let newE = document.createElement("div");
+        newE.addEventListener("mousedown", pressTile);
+        container.appendChild(newE);
+
+        row.push(0);
+    }
+    grid.push(row)
+}
 
 if (cheats) {
     // cheats :>
