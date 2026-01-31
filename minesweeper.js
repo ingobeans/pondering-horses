@@ -43,6 +43,40 @@ const DIRECTIONS = [
     [-1, -1]
 ];
 
+function generateGrid() {
+    gameState = RUNNING;
+    textStatus.textContent = "minesweep";
+    container.innerHTML = "";
+    grid = [];
+    for (i = 0; i < tilesWidth; i++) {
+        let row = [];
+        for (j = 0; j < tilesWidth; j++) {
+            let newE = document.createElement("div");
+            newE.addEventListener("mousedown", pressTile);
+            container.appendChild(newE);
+
+            row.push(0);
+        }
+        grid.push(row)
+    }
+    // generate mines
+    for (i = 0; i < mineAmt; i++) {
+        let x = Math.floor(Math.random() * tilesWidth);
+        let y = Math.floor(Math.random() * tilesWidth);
+        // set mine
+        grid[x][y] = MINE;
+
+        // update neighbours
+        for (let dir of DIRECTIONS) {
+            let tx = x + dir[0];
+            let ty = y + dir[1];
+            if (tx >= 0 && ty >= 0 && tx < tilesWidth && ty < tilesWidth && grid[tx][ty] != MINE) {
+                grid[tx][ty] += 1;
+            }
+        }
+    }
+}
+
 function showTileXY(x, y) {
     let id = x + y * tilesWidth;
     let e = container.children[id];
@@ -99,35 +133,7 @@ function pressTile(event) {
     }
 }
 
-for (i = 0; i < tilesWidth; i++) {
-    let row = [];
-    for (j = 0; j < tilesWidth; j++) {
-        let newE = document.createElement("div");
-        newE.addEventListener("mousedown", pressTile);
-        container.appendChild(newE);
-
-        row.push(0);
-    }
-    grid.push(row)
-}
-
-
-// generate mines
-for (i = 0; i < mineAmt; i++) {
-    let x = Math.floor(Math.random() * tilesWidth);
-    let y = Math.floor(Math.random() * tilesWidth);
-    // set mine
-    grid[x][y] = MINE;
-
-    // update neighbours
-    for (let dir of DIRECTIONS) {
-        let tx = x + dir[0];
-        let ty = y + dir[1];
-        if (tx >= 0 && ty >= 0 && tx < tilesWidth && ty < tilesWidth && grid[tx][ty] != MINE) {
-            grid[tx][ty] += 1;
-        }
-    }
-}
+generateGrid();
 
 if (cheats) {
     // cheats :>
