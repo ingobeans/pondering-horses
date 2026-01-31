@@ -270,7 +270,6 @@ iframe {
 }
 
 #minesweeper-container>div {
-    background-color: rgb(125, 125, 136);
     background-color: #bdbdbd;
     width: 16px;
     height: 16px;
@@ -289,6 +288,11 @@ iframe {
 
 .mineMine {
     color: black;
+}
+
+#minesweeper-container>div:has(p) {
+    background-color: rgb(150, 150, 153);
+    outline: solid 1px black;
 }
 
 .mine0 {
