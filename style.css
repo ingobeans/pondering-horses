@@ -280,7 +280,7 @@ iframe {
 #minesweeper-container>div>p {
     padding: 0;
     margin: 0;
-    transform: translateY(-6px);
+    transform: translateY(-4.3px);
     text-align: center;
     font-family: 'Trebuchet MS', sans-serif;
     pointer-events: none;
