@@ -25,7 +25,7 @@ container.style.gridTemplateRows = text;
 
 let grid = [];
 
-let cheats = true;
+let cheats = false;
 
 let mineDensity = 0.2;
 let mineAmt = Math.floor(mineDensity * tilesWidth * tilesWidth);
@@ -143,6 +143,15 @@ function revealAllTiles() {
         }
     }
 }
+function revealMines() {
+    for (i = 0; i < tilesWidth; i++) {
+        for (j = 0; j < tilesWidth; j++) {
+            if (grid[i][j] == MINE) {
+                showTileXY(i, j);
+            }
+        }
+    }
+}
 function checkIfWin() {
     for (i = 0; i < tilesWidth; i++) {
         for (j = 0; j < tilesWidth; j++) {
@@ -206,7 +215,7 @@ function pressTile(event) {
 
         if (grid[x][y] == MINE) {
             textStatus.textContent = "you lose !";
-            revealAllTiles();
+            revealMines();
             element.style.backgroundColor = "red";
             gameState = LOSE;
         } else {
