@@ -25,7 +25,7 @@ container.style.gridTemplateRows = text;
 
 let grid = [];
 
-let cheats = false;
+let cheats = true;
 
 let mineDensity = 0.2;
 let mineAmt = Math.floor(mineDensity * tilesWidth * tilesWidth);
@@ -229,5 +229,17 @@ for (i = 0; i < tilesWidth; i++) {
 
 if (cheats) {
     // cheats :>
-    revealAllTiles();
+    addEventListener("keydown", (event) => {
+        if (event.key == "w") {
+            revealAllTiles();
+            for (i = 0; i < tilesWidth; i++) {
+                for (j = 0; j < tilesWidth; j++) {
+                    if (grid[i][j] == MINE) {
+                        let id = i + j * tilesWidth;
+                        container.children[id].innerHTML = "";
+                    }
+                }
+            }
+        }
+    })
 }
