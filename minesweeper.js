@@ -67,9 +67,13 @@ function pressTile(event) {
 
     let element = event.target;
     let id = [...element.parentElement.children].indexOf(element);
-    let x = Math.floor(id % tilesWidth);
-    let y = Math.floor(id / tilesWidth);
-    recursiveExpand(x, y);
+
+    if (element.innerHTML == "") {
+        let x = Math.floor(id % tilesWidth);
+        let y = Math.floor(id / tilesWidth);
+
+        recursiveExpand(x, y);
+    }
 }
 
 for (i = 0; i < tilesWidth; i++) {
