@@ -1,7 +1,13 @@
 let container = document.getElementById("minesweeper-container");
+let textStatus = document.getElementById("minesweeper-text");
 
 let containerSize = 304;
 let size = 16;
+
+const RUNNING = 1;
+const LOSE = 2;
+
+let gameState = RUNNING;
 
 container.style.width = containerSize + "px";
 container.style.height = containerSize + "px";
@@ -50,7 +56,17 @@ function showTileID(id) {
     let y = Math.floor(id / tilesWidth);
     showTileXY(x, y);
 }
+function revealAllTiles() {
+    for (i = 0; i < tilesWidth; i++) {
+        for (j = 0; j < tilesWidth; j++) {
+            showTileXY(i, j);
+        }
+    }
+}
 function pressTile(event) {
+    if (gameState != RUNNING) {
+        return;
+    }
     function recursiveExpand(x, y) {
         showTileXY(x, y);
         if (grid[x][y] == 0) {
@@ -72,7 +88,14 @@ function pressTile(event) {
         let x = Math.floor(id % tilesWidth);
         let y = Math.floor(id / tilesWidth);
 
-        recursiveExpand(x, y);
+        if (grid[x][y] == MINE) {
+            textStatus.textContent = "you lose !";
+            revealAllTiles();
+            element.children[0].style.color = "white";
+            gameState = LOSE;
+        } else {
+            recursiveExpand(x, y);
+        }
     }
 }
 
@@ -108,9 +131,5 @@ for (i = 0; i < mineAmt; i++) {
 
 if (cheats) {
     // cheats :>
-    for (i = 0; i < tilesWidth; i++) {
-        for (j = 0; j < tilesWidth; j++) {
-            showTileXY(i, j);
-        }
-    }
+    revealAllTiles();
 }
