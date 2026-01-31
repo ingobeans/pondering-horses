@@ -161,7 +161,7 @@ function pressTile(event) {
         if (grid[x][y] == MINE) {
             textStatus.textContent = "you lose !";
             revealAllTiles();
-            element.children[0].style.color = "white";
+            element.style.backgroundColor = "red";
             gameState = LOSE;
         } else {
             recursiveExpand(x, y);
