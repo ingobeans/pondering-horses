@@ -304,12 +304,20 @@ iframe {
     height: 23px;
 }
 
+
 #minesweeper-restart>p {
     color: yellow;
     margin: 0;
     padding: 0;
     font-size: 30px;
     transform: translate(-6px, -13px);
+}
+
+#minesweeper-counter {
+    font-family: 'Trebuchet MS', sans-serif;
+    transform: translateY(5px);
+    float: right;
+    margin-right: 20px;
 }
 
 #minesweeper-container>div:has(p) {

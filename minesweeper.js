@@ -1,5 +1,6 @@
 let container = document.getElementById("minesweeper-container");
 let textStatus = document.getElementById("minesweeper-text");
+let counter = document.getElementById("minesweeper-counter");
 
 let containerSize = 304;
 let size = 16;
@@ -25,8 +26,9 @@ let grid = [];
 
 let cheats = false;
 
-let mineDensity = 0.1;
+let mineDensity = 0.02;
 let mineAmt = Math.floor(mineDensity * tilesWidth * tilesWidth);
+counter.innerText = mineAmt.toString();
 
 // special value for representing a mine tile.
 // all other values in the grid represent the amount of neighbouring mines
@@ -69,6 +71,7 @@ function hasNeighbour(sourceX, sourceY, neighbourX, neighbourY) {
 function generateGrid(safeX, safeY) {
     // generates a grid, with position (safeX, safeY) being guaranteed clear
 
+    counter.innerText = mineAmt.toString();
     gameState = RUNNING;
     textStatus.textContent = "minesweep";
     grid = [];
@@ -80,15 +83,16 @@ function generateGrid(safeX, safeY) {
         grid.push(row)
     }
     // generate mines
-    for (i = 0; i < mineAmt; i++) {
+    let i2 = 0;
+    while (i2 < mineAmt) {
         let x = Math.floor(Math.random() * tilesWidth);
         let y = Math.floor(Math.random() * tilesWidth);
 
         if ((x == safeX && y == safeY) || grid[x][y] == MINE || hasNeighbour(x, y, safeX, safeY)) {
-            i += 1;
             continue;
         }
 
+        i2 += 1;
         // set mine
         grid[x][y] = MINE;
 
@@ -160,8 +164,10 @@ function pressTile(event) {
     if (event.buttons == 2 && (element.innerHTML == "" || element.innerHTML.includes(FLAG_CHAR))) {
         let flagPresent = element.innerHTML != "";
         if (flagPresent) {
+            counter.innerText = (parseInt(counter.innerText) + 1).toString();
             element.innerHTML = "";
         } else {
+            counter.innerText = (parseInt(counter.innerText) - 1).toString();
             element.innerHTML = "<p class='flag'>" + FLAG_CHAR + "</p>";
         }
     }
