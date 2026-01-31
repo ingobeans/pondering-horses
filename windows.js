@@ -72,3 +72,13 @@ document.addEventListener("mousemove", (event) => {
         dragging.style.top = draggingOffset[1] + mouse[1] + "px";
     }
 })
+
+let previousScroll = 0;
+document.addEventListener("scroll", (_) => {
+    let delta = window.scrollY - previousScroll;
+    previousScroll = window.scrollY;
+    if (dragging != null) {
+        draggingOffset[1] += delta;
+        dragging.style.top = draggingOffset[1] + mouse[1] + "px";
+    }
+})
