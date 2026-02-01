@@ -30,6 +30,10 @@ froggyInput.addEventListener("keydown", (event) => {
     }
     let value = froggyInput.value;
     froggyInput.value = "";
+
+    if (value == "" || value.match(/^ *$/) !== null) {
+        return;
+    }
     let userMessageElement = document.createElement("p");
     userMessageElement.className = "froggyUserMessage";
     userMessageElement.innerText = value;
