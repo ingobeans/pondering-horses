@@ -1,0 +1,22 @@
+name: Build wasm and deploy to pages
+
+on: workflow_dispatch
+
+jobs:
+  publish:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Run build.py
+        run: python3 build.py publish
+
+      - name: Publish current workdir (which contains generated content) to GitHub Pages
+        uses: rayluo/github-pages-overwriter@v1.3
+
+        with:
+          source-directory: web/
+          target-branch: publish

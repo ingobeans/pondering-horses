@@ -79,21 +79,11 @@ items = get_games()
 for item in items:
     html += f'<game><div class="window-decoration">{item[0].split("/")[-1]}</div><a href="{item[0]}"><img src="{item[1]}"><p>{item[3]}</p></a></game>'
 
-yes_to_all = "yes" in sys.argv
-
-# build index.html if publish build
+# build index.html if publish build.
+# only intented to run for github actions
 if "publish" in sys.argv:
-    branch_name = subprocess.check_output(["git","rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8")
-    in_gh_pages = "publish" in branch_name
-    if not in_gh_pages:
-        if yes_to_all or input("not in branch publish, do you want to go there? Y/n: ").lower() != "n":
-            os.system("git checkout publish")
-            in_gh_pages = True
+    os.system("git reset origin/main --hard")
 
-    if in_gh_pages and (yes_to_all or input("pull main branch? Y/n: ").lower() != "n"):
-        os.system("git reset origin/main --hard")
-
-    
     with open("games.html","w") as f:
         f.write(html)
     print("built games.html!")
@@ -147,16 +137,6 @@ if "publish" in sys.argv:
     with open(".gitignore","w") as f:
         f.write(newgitignore)
     print("removed games.html from .gitignore!")
-    
-    if yes_to_all or input("commit and push? Y/n: ").lower() != "n":
-        os.system("git add .")
-        os.system('git commit -m "publish with build.py"')
-        os.system("git push origin publish --force")
-        print("publish completed!!")
-        
-    if in_gh_pages and (yes_to_all or input("return to branch main? Y/n: ").lower() != "n"):
-        os.system("git restore .")
-        os.system("git checkout main")
 else:
     with open("games.html","w") as f:
         f.write(html)
