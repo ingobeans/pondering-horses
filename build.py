@@ -30,10 +30,17 @@ def replace_emojis(text:str)->str:
     new = re.sub(pattern,sub,text)
     return new
 
+def replaceHtmlLinks(text:str)->str:
+    pattern = r"\./([a-z/]*).html"
+    sub = r"./\1"
+    new = re.sub(pattern,sub,text)
+    return new
+
 if "test" in sys.argv:
     with open("index.html","r") as f:
         g = f.read()
     n = replace_emojis(g)
+    n = replaceHtmlLinks(n)
     with open("test.html","w") as f:
         f.write(n)
     quit()
@@ -117,6 +124,17 @@ if "publish" in sys.argv:
                 f.write(n)
             print(file+"...",end="")
     print("\nemoji substitution completed! :yay:")
+
+    print("replacing html links...")
+    for file in os.listdir():
+        if file.endswith(".html") or file.endswith(".js"):
+            with open(file,"r") as f:
+                g = f.read()
+            n = replaceHtmlLinks(g)
+            with open(file,"w") as f:
+                f.write(n)
+            print(file+"...",end="")
+    print("html links replacing done!")
 
     # remove games.html from .gitignore
     with open(".gitignore","r") as f:
