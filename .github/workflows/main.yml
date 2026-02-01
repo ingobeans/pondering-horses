@@ -18,5 +18,5 @@ jobs:
         uses: rayluo/github-pages-overwriter@v1.3
 
         with:
-          source-directory: web/
+          source-directory: .
           target-branch: publish
