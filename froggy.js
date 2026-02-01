@@ -46,6 +46,8 @@ froggyInput.addEventListener("keydown", (event) => {
     froggyMessageElement.className = "froggyMessage";
     froggyMessageElement.innerHTML = "> " + generateResponse(value);
     froggyChatMessages.appendChild(froggyMessageElement);
+
+    froggyChatMessages.scrollTo(0, froggyChatMessages.scrollHeight);
 });
 
 function containsPhrase(text, phrase) {
