@@ -141,6 +141,10 @@ const QUESTION_TYPE_REGEXES = {
         /where are ([a-z ]*)/,
         /even is a ([a-z ]*)/,
         /how [a-z]* is ([a-z ]*)/,
+        /what is the [a-z]* of the ([a-z ]*)/,
+        /what is the ([a-z ]*)/,
+        /whats the [a-z]* of the ([a-z ]*)/,
+        /whats the ([a-z ]*)/,
     ]
 }
 
@@ -175,7 +179,7 @@ const PHRASES = [
     [["who made this", "who made u", "who created this", "who created u"], ["take a guess..", "probably the person who created the rest of the website"]],
     [["tell me about u", "tell me about urself", "what do u like to do", "what do u like doing", "what u like doing", "hobbies", "tell me about froggy", "your spare time"], ["i like making frog sounds and whittling"]],
     [["i love u", "u are so cute", "u are cute"], ["of course you do ! im froggy", "i love you too <3"]],
-    [["are u a frog", "how is frog life", "how is life as a frog", "hows life as a frog"], ["frog life > human life", "being a frog is great! i <u>never</u> pay taxes"]],
+    [["are u a frog", "how is frog life", "how is life as a frog", "hows life as a frog", "whats frog life like"], ["frog life > human life", "being a frog is great! i <u>never</u> pay taxes"]],
     [["tax fraud"], ["i love tax fraud <3"]],
     [["vim", ["emacs better"]]],
     [["emacs", ["vim better"]]],
