@@ -76,7 +76,6 @@ function generateResponse(text) {
     }
 
     text = preprocessText(text);
-    console.log(text);
 
     for (let phrase of PHRASES) {
         for (let variant of phrase[0]) {
