@@ -70,6 +70,18 @@ function preprocessText(text) {
     return newText
 }
 
+function getQuestionType(text) {
+    for (let [key, regexes] of Object.entries(QUESTION_TYPE_REGEXES)) {
+        for (let regex of regexes) {
+            let match = text.match(regex);
+            if (match != null) {
+                return [key, match[1]];
+            }
+        }
+    }
+    return [null, null];
+}
+
 function generateResponse(text) {
     if (text.includes(":3")) {
         return ":3"
@@ -84,7 +96,52 @@ function generateResponse(text) {
             }
         }
     }
+
+    let [type, subject] = getQuestionType(text);
+    if (type != null) {
+        for (let entry of KNOWLEDGE[type]) {
+            for (let subjectName of entry[0]) {
+                if (subject == subjectName) {
+                    return entry[1][Math.floor(Math.random() * entry[1].length)]
+                }
+            }
+        }
+    }
+
     return "ribbit"
+}
+
+const QUESTION_TYPE_REGEXES = {
+    "opinions": [
+        /what do u think of ([a-z ]*)/,
+        /what do u think about ([a-z ]*)/,
+        /do u like ([a-z ]*)/,
+        /what is ur opinion on ([a-z ]*)/,
+        /what is ur opinion of ([a-z ]*)/,
+    ],
+    "personalFacts": [
+        /what kind of ([a-z ]*) do u/,
+        /what kind of ([a-z ]*) u/,
+        /what do u like ([a-z ]*)/,
+        /whats ur favorite ([a-z ]*)/,
+        /what ([a-z ]*) do u/,
+        /what ([a-z ]*) u/,
+        /u like ([a-z ]*)/,
+    ]
+}
+
+const KNOWLEDGE = {
+    "opinions": [
+        [["toads", "toad"], ["toads are like frogs but big and lumpy.", "frogs are way cooler (in my humble opinion)"]],
+        [["frogs"], ["gosh i heckin love frogs"]],
+        [["food", "eating"], ["i love eating food, mostly bugs"]],
+        [["rust"], ["rust is best programming lang ever !!!!"]],
+    ],
+    "personalFacts": [
+        [["doing"], ["i like making frog sounds and whittling"]],
+        [["music"], ["i mostly listen to 'frog sounds asmr'"]],
+        [["lang", "programming lang", "programming language"], ["rust."]],
+    ],
 }
 
 const PHRASES = [
