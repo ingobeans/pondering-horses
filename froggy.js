@@ -127,6 +127,20 @@ const QUESTION_TYPE_REGEXES = {
         /what ([a-z ]*) do u/,
         /what ([a-z ]*) u/,
         /u like ([a-z ]*)/,
+    ],
+    "facts": [
+        /what is a ([a-z ]*)/,
+        /whats a ([a-z ]*)/,
+        /what are ([a-z ]*)/,
+        /what a ([a-z ]*) is/,
+        /what ([a-z ]*) do u use/,
+        /what ([a-z ]*) u use/,
+        /what ([a-z ]*) are u using/,
+        /where is ([a-z ]*)/,
+        /where can i see ([a-z ]*)/,
+        /where are ([a-z ]*)/,
+        /even is a ([a-z ]*)/,
+        /how [a-z]* is ([a-z ]*)/,
     ]
 }
 
@@ -142,11 +156,20 @@ const KNOWLEDGE = {
         [["music"], ["i mostly listen to 'frog sounds asmr'"]],
         [["lang", "programming lang", "programming language"], ["rust."]],
     ],
+    "facts": [
+        [["moon"], ["the moon has a radius of 1,737.5 km"]],
+        [["projects"], ["here is the <a href='./projects.html'>projects site</a>"]],
+        [["toads", "toad"], ["toads are like frogs but big and lumpy."]],
+        [["frog"], ["a frog is the most beautiful thing in the world (in my humble opinion)"]],
+        [["web browser", "webbrowser", "browser"], ["my favorite web browser is <a href='https://github.com/ingobeans/toad'>TOAD</a> (even though i normally dont like toads)"]],
+        [["lang"], ["rust is best programming language."]],
+        [["u"], ["im just a frog, frogging my way through frog life"]]
+    ]
 }
 
 const PHRASES = [
     [["hello", "hi", "good day", "mornin", "whats up", "wsg", "sup", "hiya", "yo"], ["hi!!!", "good day ! (or night)", "hwello", "hiya", "hi there"]],
-    [["who are u", "whos this", "what is froggy", "who this", "what are u"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3"]],
+    [["who are u", "whos this", "what is froggy", "who this", "what are u"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3", "im just a frog, frogging my way through frog life"]],
     [["how are u", "how u doing", "how u doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
     [["so cool", "wow", "this is sick", "this is cool", "amazing", "woah"], ["<img class='emoji' src='./emojis/yay.gif'>"]],
     [["who made this", "who made u", "who created this", "who created u"], ["take a guess..", "probably the person who created the rest of the website"]],
