@@ -45,9 +45,22 @@ function containsPhrase(text, phrase) {
     return (text == phrase || text.startsWith(phrase + " ") || text.endsWith(" " + phrase) || text.includes(" " + phrase + " "))
 }
 
-function generateResponse(text) {
+function preprocessText(text) {
     text = text.toLowerCase();
+    let newText = "";
+    for (let char of text) {
+        let isAlphabetic = /^[A-Za-z]+$/.test(char);
+        if (isAlphabetic) {
+            newText += char;
+        } else {
+            newText += " ";
+        }
+    }
+    return newText
+}
 
+function generateResponse(text) {
+    text = preprocessText(text);
 
     for (let phrase of PHRASES) {
         for (let variant of phrase[0]) {
