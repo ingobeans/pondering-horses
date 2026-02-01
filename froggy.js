@@ -191,4 +191,6 @@ const PHRASES = [
     [["whats the point of life", "meaning of life"], ["life is like jumping between two far away lilypads: its scary, theres no way to know if you'll succeed and if you fail youll be swept up by the river- but, when you are in the middle of the jump, soaring through the sky, everything is quite beautiful, and you know that at the end of the day, you always were going to make the jump"]],
     [["hamburger"], ["burghammer"]],
     [["u think of toads"], ["toads are like frogs but big and lumpy.", "frogs are way cooler (in my humble opinion)"]],
+    [["how do i"], ["by believing in yourself !"]],
+    [["life is hard"], ["but you are a champion !!"]],
 ];
