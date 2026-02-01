@@ -17,3 +17,43 @@ const texts = [
 
 splashTextElement.innerHTML = texts[Math.floor(Math.random() * texts.length)];
 splashTextElement.style.fontSize = (-0.26 * splashTextElement.innerText.length + 29.1) + "px";
+
+let dvd = document.getElementById("dvd");
+let newDvd = document.createElement("img");
+newDvd.src = "./images/beans.png"
+newDvd.style = "filter: hue-rotate(0deg) drop-shadow(5px 5px 0 black);";
+newDvd.className = "imgshadow";
+dvd.appendChild(newDvd);
+
+const COLORS = [
+    0, 280, 172, 100, 130
+];
+
+function changeColor() {
+    let old = newDvd.style.filter.split("(")[1].split("d")[0];
+    console.log(old);
+    let newColor = old;
+    while (newColor == old) {
+        newColor = COLORS[Math.floor(Math.random() * COLORS.length)];
+    }
+    newDvd.style = "filter: hue-rotate(" + newColor + "deg) drop-shadow(5px 5px 0 black);";
+}
+
+let oldDx = 0;
+let oldDy = 0;
+let oldX = -1;
+let oldY = -1;
+function updateDvd() {
+    let bounding = newDvd.getBoundingClientRect();
+    let x = bounding.left;
+    let y = bounding.top;
+    let dx = oldX - x;
+    let dy = oldY - y;
+    oldX = x;
+    oldY = y;
+    if (((dx > 0 && oldDx < 0) || (dx < 0 && oldDx > 0)) || ((dy > 0 && oldDy < 0) || (dy < 0 && oldDy > 0))) {
+        changeColor();
+    }
+    oldDx = dx;
+    oldDy = dy;
+}

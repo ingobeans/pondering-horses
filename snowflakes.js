@@ -89,6 +89,9 @@ function update(now) {
         s.lifetime += deltaTime / 1000;
         index -= 1;
     }
+
+    updateDvd();
+
     requestAnimationFrame(update);
 }
 update();
