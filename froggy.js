@@ -60,9 +60,14 @@ function preprocessText(text) {
 }
 
 function generateResponse(text) {
+    if (text.includes(":3")) {
+        return ":3"
+    }
+
     text = preprocessText(text);
 
     for (let phrase of PHRASES) {
+        console.log(phrase);
         for (let variant of phrase[0]) {
             if (containsPhrase(text, variant)) {
                 return phrase[1][Math.floor(Math.random() * phrase[1].length)]
@@ -73,5 +78,7 @@ function generateResponse(text) {
 }
 
 const PHRASES = [
-    [["hello", "hi", "good day", "mornin", "whats up", "wsg", "sup", "hiya"], ["hi!!!", "good day ! (or night)", "hwello", "hiya", "hi there"]],
+    [["hello", "hi", "good day", "mornin", "whats up", "wsg", "sup", "hiya", "yo"], ["hi!!!", "good day ! (or night)", "hwello", "hiya", "hi there"]],
+    [["who are you", "whos this", "what is froggy", "who this", "what are you"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3"]],
+    [["how are you", "how you doing", "how you doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
 ];
