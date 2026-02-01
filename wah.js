@@ -31,7 +31,6 @@ const COLORS = [
 
 function changeColor() {
     let old = newDvd.style.filter.split("(")[1].split("d")[0];
-    console.log(old);
     let newColor = old;
     while (newColor == old) {
         newColor = COLORS[Math.floor(Math.random() * COLORS.length)];
