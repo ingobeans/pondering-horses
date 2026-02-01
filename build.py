@@ -84,10 +84,10 @@ yes_to_all = "yes" in sys.argv
 # build index.html if publish build
 if "publish" in sys.argv:
     branch_name = subprocess.check_output(["git","rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8")
-    in_gh_pages = "gh-pages" in branch_name
+    in_gh_pages = "publish" in branch_name
     if not in_gh_pages:
-        if yes_to_all or input("not in branch gh-pages, do you want to go there? Y/n: ").lower() != "n":
-            os.system("git checkout gh-pages")
+        if yes_to_all or input("not in branch publish, do you want to go there? Y/n: ").lower() != "n":
+            os.system("git checkout publish")
             in_gh_pages = True
 
     if in_gh_pages and (yes_to_all or input("pull main branch? Y/n: ").lower() != "n"):
@@ -151,7 +151,7 @@ if "publish" in sys.argv:
     if yes_to_all or input("commit and push? Y/n: ").lower() != "n":
         os.system("git add .")
         os.system('git commit -m "publish with build.py"')
-        os.system("git push origin gh-pages --force")
+        os.system("git push origin publish --force")
         print("publish completed!!")
         
     if in_gh_pages and (yes_to_all or input("return to branch main? Y/n: ").lower() != "n"):
