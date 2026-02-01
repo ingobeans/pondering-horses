@@ -34,6 +34,7 @@ def replaceHtmlLinks(text:str)->str:
     pattern = r"\./([a-z/]*).html"
     sub = r"./\1"
     new = re.sub(pattern,sub,text)
+    new = new.replace("./index","./")
     return new
 
 if "test" in sys.argv:
