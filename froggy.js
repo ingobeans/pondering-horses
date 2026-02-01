@@ -74,9 +74,9 @@ function generateResponse(text) {
     }
 
     text = preprocessText(text);
+    console.log(text);
 
     for (let phrase of PHRASES) {
-        console.log(phrase);
         for (let variant of phrase[0]) {
             if (containsPhrase(text, variant)) {
                 return phrase[1][Math.floor(Math.random() * phrase[1].length)]
@@ -91,15 +91,15 @@ const PHRASES = [
     [["who are u", "whos this", "what is froggy", "who this", "what are u"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3"]],
     [["how are u", "how u doing", "how u doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
     [["so cool", "wow", "this is sick", "this is cool", "amazing", "woah"], ["<img class='emoji' src='./emojis/yay.gif'>"]],
-    [["who made this", "who made u", "who created this", "who created you"], ["take a guess..", "probably the person who created the rest of the website"]],
-    [["tell me about u", "tell me about yourself", "what do u like to do", "what do u like doing", "what u like doing", "hobbies", "tell me about froggy", "your spare time"], ["i like making frog sounds and whittling"]],
+    [["who made this", "who made u", "who created this", "who created u"], ["take a guess..", "probably the person who created the rest of the website"]],
+    [["tell me about u", "tell me about urself", "what do u like to do", "what do u like doing", "what u like doing", "hobbies", "tell me about froggy", "your spare time"], ["i like making frog sounds and whittling"]],
     [["i love u", "u are so cute", "u are cute"], ["of course you do ! im froggy", "i love you too <3"]],
     [["are u a frog", "how is frog life", "how is life as a frog", "hows life as a frog"], ["frog life > human life", "being a frog is great! i <u>never</u> pay taxes"]],
     [["tax fraud"], ["i love tax fraud <3"]],
     [["vim", ["emacs better"]]],
     [["emacs", ["vim better"]]],
     [["any brothers or sisters", "u have any family", "u have family", "u have friends", "u have any friends"], ["my frog hive consists of over 200 fellow frogs !"]],
-    [["your pronouns"], ["just refer to me by name"]],
+    [["ur pronouns"], ["just refer to me by name"]],
     [["doctor who"], "omg i love that show"],
     [["whats the point of life", "meaning of life"], ["life is like jumping between two far away lilypads: its scary, theres no way to know if you'll succeed and if you fail youll be swept up by the river- but, when you are in the middle of the jump, soaring through the sky, everything is quite beautiful, and you know that at the end of the day, you always were going to make the jump"]],
     [["hamburger"], ["burghammer"]],
