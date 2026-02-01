@@ -47,6 +47,8 @@ function containsPhrase(text, phrase) {
 
 function preprocessText(text) {
     text = text.toLowerCase();
+    text = text.replaceAll("you", "u");
+
     let newText = "";
     for (let char of text) {
         let isAlphabetic = /^[A-Za-z]+$/.test(char);
@@ -79,6 +81,6 @@ function generateResponse(text) {
 
 const PHRASES = [
     [["hello", "hi", "good day", "mornin", "whats up", "wsg", "sup", "hiya", "yo"], ["hi!!!", "good day ! (or night)", "hwello", "hiya", "hi there"]],
-    [["who are you", "whos this", "what is froggy", "who this", "what are you"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3"]],
-    [["how are you", "how you doing", "how you doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
+    [["who are u", "whos this", "what is froggy", "who this", "what are u"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3"]],
+    [["how are u", "how u doing", "how u doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
 ];
