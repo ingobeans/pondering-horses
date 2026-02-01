@@ -116,6 +116,8 @@ function generateResponse(text) {
 
 const QUESTION_TYPE_REGEXES = {
     "opinions": [
+        /what u think of ([a-z ]*)/,
+        /what u think about ([a-z ]*)/,
         /what do u think of ([a-z ]*)/,
         /what do u think about ([a-z ]*)/,
         /do u like ([a-z ]*)/,
@@ -171,6 +173,12 @@ const KNOWLEDGE = {
         [["toads", "toad"], ["toads are like frogs but big and lumpy.", "frogs are way cooler (in my humble opinion)"]],
         [["frogs"], ["gosh i heckin love frogs"]],
         [["food", "eating"], ["i love eating food, mostly bugs"]],
+        [["beans"], ["i mostly eat bugs, not beans"]],
+        [["whittling"], ["i love whittling!"]],
+        [["frogging"], ["i always frog around!"]],
+        [["war"], ["war < froggy", "war is pretty lame if i may say so myself"]],
+        [["school", "biology", "chemistry", "physics", "math", "golgi"], ["imagine having school lmfao i just frog around all day haha nerd"]],
+        [["microsoft"], ["microsoft more like lame-rosoft haha gottem"]],
         [["rust"], ["rust is best programming lang ever !!!!"]],
         [["*"], ["i dont really have an opinion of that", "i dont have an opinion of that", "mm hard to say"]],
     ],
