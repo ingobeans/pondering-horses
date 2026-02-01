@@ -57,6 +57,9 @@ function containsPhrase(text, phrase) {
 function preprocessText(text) {
     text = text.toLowerCase();
     text = text.replaceAll("you", "u");
+    text = text.replaceAll("i'm", "i am");
+    text = text.replaceAll("u're", "u are");
+    text = text.replaceAll("'", "");
 
     let newText = "";
     for (let char of text) {
