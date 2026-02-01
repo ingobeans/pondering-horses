@@ -1,5 +1,10 @@
-hello! this is my personal little website. i hope you like it! 
+<img src="./images/logoHD.png" alt="logo">
 
-not made with any framework ofc, javascript is used for the background but not necessary to have enabled. 
+## hello and welcome to MY PERSONAL WEBSITE
+i hope you like it! 
 
-i also use a python script to generate the games.html page, which just scrapes my itch.io page to list the games ive made.
+made with raw html and css.
+
+javascript is used for the background, minesweeper, draggable windows on the project page, and froggy, but is not necessary to have enabled. 
+
+a python script, build.py, is used to generate parts of the page. my itch.io page is scraped to list all the games ive made on the projects page, and it also does things like substituting emojis and links.
