@@ -21,7 +21,7 @@ splashTextElement.style.fontSize = (-0.26 * splashTextElement.innerText.length +
 let dvd = document.getElementById("dvd");
 let newDvd = document.createElement("img");
 newDvd.src = "./images/beans.png"
-newDvd.style = "filter: hue-rotate(0deg) drop-shadow(5px 5px 0 black);";
+newDvd.style = "filter: hue-rotate(0deg) drop-shadow(5px 5px 0 black); width: 100px;";
 newDvd.className = "imgshadow";
 dvd.appendChild(newDvd);
 
@@ -35,7 +35,7 @@ function changeColor() {
     while (newColor == old) {
         newColor = COLORS[Math.floor(Math.random() * COLORS.length)];
     }
-    newDvd.style = "filter: hue-rotate(" + newColor + "deg) drop-shadow(5px 5px 0 black);";
+    newDvd.style = "filter: hue-rotate(" + newColor + "deg) drop-shadow(5px 5px 0 black); width: 100px;";
 }
 
 let oldDx = 0;
