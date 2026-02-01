@@ -46,11 +46,11 @@ function updateDvd() {
     let bounding = newDvd.getBoundingClientRect();
     let x = bounding.left;
     let y = bounding.top;
-    let dx = oldX - x;
-    let dy = oldY - y;
+    let dx = oldX - x > 0 ? 1 : 0;
+    let dy = oldY - y > 0 ? 1 : 0;
     oldX = x;
     oldY = y;
-    if (((dx > 0 && oldDx < 0) || (dx < 0 && oldDx > 0)) || ((dy > 0 && oldDy < 0) || (dy < 0 && oldDy > 0))) {
+    if (dx != oldDx || dy != oldDy) {
         changeColor();
     }
     oldDx = dx;
