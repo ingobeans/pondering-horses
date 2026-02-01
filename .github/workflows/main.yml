@@ -1,4 +1,4 @@
-name: Build wasm and deploy to pages
+name: Build website!
 
 on: workflow_dispatch
 
