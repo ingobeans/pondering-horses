@@ -217,7 +217,7 @@ const KNOWLEDGE = {
 }
 
 const PHRASES = [
-    [["hello", "hi", "good day", "mornin", "whats up", "wsg", "sup", "hiya", "yo"], ["hi!!!", "good day ! (or night)", "hwello", "hiya", "hi there"]],
+    [["hello", "hi", "good day", "morning", "whats up", "wsg", "sup", "hiya", "yo", "whats popping", "whats frogging"], ["hi!!!", "good day ! (or night)", "hwello", "hiya", "hi there"]],
     [["who are u", "whos this", "what is froggy", "who this", "what are u"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3", "im just a frog, frogging my way through frog life"]],
     [["how are u", "how u doing", "how u doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
     [["so cool", "wow", "this is sick", "this is cool", "amazing", "woah"], ["<img class='emoji' src='./emojis/yay.gif'>"]],
