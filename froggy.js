@@ -101,8 +101,8 @@ function generateResponse(text) {
     if (type != null) {
         for (let entry of KNOWLEDGE[type]) {
             for (let subjectName of entry[0]) {
-                if (subject == subjectName || subjectName == "*") {
-                    return entry[1][Math.floor(Math.random() * entry[1].length)]
+                if (subject == subjectName || subjectName == "*" || subject.includes(subjectName)) {
+                    return entry[1][Math.floor(Math.random() * entry[1].length)].replaceAll("$", subject)
                 }
             }
         }
@@ -145,6 +145,21 @@ const QUESTION_TYPE_REGEXES = {
         /what is the ([a-z ]*)/,
         /whats the [a-z]* of the ([a-z ]*)/,
         /whats the ([a-z ]*)/,
+    ],
+    "userFacts": [
+        /i like ([a-z ]*)/,
+        /i love ([a-z ]*)/,
+        /i love to ([a-z ]*)/,
+        /i hate ([a-z ]*)/,
+        /i hate to ([a-z ]*)/,
+        /i like to ([a-z ]*)/,
+        /i have ([a-z ]*)/,
+    ],
+    "userBeing": [
+        /i am ([a-z ]*)/,
+        /im ([a-z ]*)/,
+        /my name is ([a-z ]*)/,
+        /i feel like ([a-z ]*)/,
     ]
 }
 
@@ -170,6 +185,23 @@ const KNOWLEDGE = {
         [["lang"], ["rust is best programming language."]],
         [["u"], ["im just a frog, frogging my way through frog life"]],
         [["*"], ["i dont know??", "youre asking the real questions now", "i'll have to think about that", "mmm hard to say"]],
+    ],
+    "userFacts": [
+        [["play videogames", "play games"], ["i like minecraft"]],
+        [["music"], ["good for you! i love music!!!!"]],
+        [["school"], ["sometimes school can be really fun if youre lucky, but sometimes it can be really poop (forgive my language)"]],
+        [["job", "employed"], ["imagine havign a job lmfao... i just frog around all day"]],
+        [["disease", "a cold"], ["aww i hope u get better !"]],
+        [["*", "cool !", "thats nice", "mm i hear you", "yeah"]],
+    ],
+    "userBeing": [
+        [["happy", "glad", "good mood",], ["<img class='emoji' src='./emojis/yay.gif'> good for you!! if youre happy im happy <img class='emoji' src='./emojis/yay.gif'>"]],
+        [["sad", "depressed", "giving up", "give up", "shit"], ["that sucks. as a froggy i cant do much but say that i hope things get better. speak to someone, it'll help"]],
+        [["sick of", "tired of"], ["yeah. that can really suck"]],
+        [["tired",], ["poor thing. we all deserve rest. i myself spend most of the day sleeping."]],
+        [["starting to understand",], ["yay! learning is awesome!"]],
+        [["sick", "ill"], ["i hope ya get better!"]],
+        [["*"], ["hi $, i'm froggy"]]
     ]
 }
 
