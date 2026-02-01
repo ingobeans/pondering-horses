@@ -8,6 +8,9 @@ let shown = false;
 function updateVisibility() {
     froggyChat.style.display = shown ? "" : "none";
     froggy.style.display = !shown ? "" : "none";
+    if (shown) {
+        froggyInput.focus();
+    }
 }
 
 function clickFroggy() {
