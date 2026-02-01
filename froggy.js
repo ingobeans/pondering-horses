@@ -172,7 +172,7 @@ const KNOWLEDGE = {
     "opinions": [
         [["toads", "toad"], ["toads are like frogs but big and lumpy.", "frogs are way cooler (in my humble opinion)"]],
         [["frogs"], ["gosh i heckin love frogs"]],
-        [["food", "eating"], ["i love eating food, mostly bugs"]],
+        [["food", "eating", "bugs"], ["i love eating food, mostly bugs"]],
         [["beans"], ["i mostly eat bugs, not beans"]],
         [["whittling"], ["i love whittling!"]],
         [["frogging"], ["i always frog around!"]],
@@ -195,6 +195,7 @@ const KNOWLEDGE = {
         [["web browser", "webbrowser", "browser"], ["my favorite web browser is <a href='https://github.com/ingobeans/toad'>TOAD</a> (even though i normally dont like toads)"]],
         [["lang"], ["rust is best programming language."]],
         [["u"], ["im just a frog, frogging my way through frog life"]],
+        [["bean"], ["i dont like eating beans"]],
         [["*"], ["i dont know??", "youre asking the real questions now", "i'll have to think about that", "mmm hard to say"]],
     ],
     "userFacts": [
@@ -236,4 +237,5 @@ const PHRASES = [
     [["u think of toads"], ["toads are like frogs but big and lumpy.", "frogs are way cooler (in my humble opinion)"]],
     [["how do i"], ["by believing in yourself !"]],
     [["life is hard"], ["but you are a champion !!"]],
+    [["lol", "hihi", "haha"], ["hihi"]],
 ];
