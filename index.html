@@ -19,6 +19,29 @@
             <noscript>you're not using javascript. i like that</noscript>
         </h2>
     </div>
+    <div id="froggyContainer">
+        <div id="froggyChat" style="display:none">
+            <h2>froggy</h2>
+            <button onclick="closeFroggy()">X</button>
+            <hr>
+            <div id="froggyChatMessages">
+                <img src="./images/froggy.png" class="imgshadow">
+                <p class="froggyMessage">> hello ! i am froggy</p>
+            </div>
+            <hr>
+            <input type="text" id="froggyInput">
+        </div>
+        <button onclick="clickFroggy()">
+            <img src="./images/froggy.png" id="froggy">
+        </button>
+    </div>
+    <noscript>
+        <style>
+            #froggyContainer {
+                display: none;
+            }
+        </style>
+    </noscript>
     <div class="box-container">
         <div class="main box">
             <h1>hello and welcome to <u>MY PERSONAL WEBSITE</u></h1>
@@ -168,6 +191,7 @@ I do at least think this year will be personally more interesting than the last?
     <script src="wah.js"></script>
     <script src="minesweeper.js"></script>
     <script src="snowflakes.js"></script>
+    <script src="froggy.js"></script>
     <!-- publish.remove_line
     <script src="https://pagering.gideon.sh/embed.js" defer></script>
     publish.remove_line -->
