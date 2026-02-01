@@ -20,8 +20,12 @@ function closeFroggy() {
     updateVisibility();
 }
 
-froggyInput.addEventListener("keydown", (wa) => {
-    if (wa.key != "Enter") {
+froggyInput.addEventListener("keydown", (event) => {
+    if (event.key == "Escape") {
+        shown = false;
+        updateVisibility();
+    }
+    if (event.key != "Enter") {
         return;
     }
     let value = froggyInput.value;
