@@ -5,6 +5,14 @@
     /* url of the font */
 }
 
+html {
+    background-color: rgb(91, 28, 155);
+}
+
+html:has(.projects) {
+    background-color: rgb(28, 47, 155);
+}
+
 body {
     background-color: #1C0037;
     color: white;
