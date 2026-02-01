@@ -41,7 +41,7 @@ froggyInput.addEventListener("keydown", (event) => {
 
     let froggyMessageElement = document.createElement("p");
     froggyMessageElement.className = "froggyMessage";
-    froggyMessageElement.innerText = generateResponse(value);
+    froggyMessageElement.innerHTML = "> " + generateResponse(value);
     froggyChatMessages.appendChild(froggyMessageElement);
 });
 
@@ -87,4 +87,5 @@ const PHRASES = [
     [["hello", "hi", "good day", "mornin", "whats up", "wsg", "sup", "hiya", "yo"], ["hi!!!", "good day ! (or night)", "hwello", "hiya", "hi there"]],
     [["who are u", "whos this", "what is froggy", "who this", "what are u"], ["i am froggy!", "froggy's the name, chatting's the game", "im just froggy :3"]],
     [["how are u", "how u doing", "how u doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
+    [["so cool", "wow", "this is sick", "this is cool", "amazing", "woah"], ["<img class='emoji' src='./emojis/yay.gif'>"]]
 ];
