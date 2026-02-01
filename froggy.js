@@ -101,7 +101,7 @@ function generateResponse(text) {
     if (type != null) {
         for (let entry of KNOWLEDGE[type]) {
             for (let subjectName of entry[0]) {
-                if (subject == subjectName) {
+                if (subject == subjectName || subjectName == "*") {
                     return entry[1][Math.floor(Math.random() * entry[1].length)]
                 }
             }
@@ -154,6 +154,7 @@ const KNOWLEDGE = {
         [["frogs"], ["gosh i heckin love frogs"]],
         [["food", "eating"], ["i love eating food, mostly bugs"]],
         [["rust"], ["rust is best programming lang ever !!!!"]],
+        [["*"], ["i dont really have an opinion of that", "i dont have an opinion of that", "mm hard to say"]],
     ],
     "personalFacts": [
         [["doing"], ["i like making frog sounds and whittling"]],
@@ -167,7 +168,8 @@ const KNOWLEDGE = {
         [["frog"], ["a frog is the most beautiful thing in the world (in my humble opinion)"]],
         [["web browser", "webbrowser", "browser"], ["my favorite web browser is <a href='https://github.com/ingobeans/toad'>TOAD</a> (even though i normally dont like toads)"]],
         [["lang"], ["rust is best programming language."]],
-        [["u"], ["im just a frog, frogging my way through frog life"]]
+        [["u"], ["im just a frog, frogging my way through frog life"]],
+        [["*"], ["i dont know??", "youre asking the real questions now", "i'll have to think about that", "mmm hard to say"]],
     ]
 }
 
