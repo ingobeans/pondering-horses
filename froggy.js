@@ -222,7 +222,7 @@ const PHRASES = [
     [["how are u", "how u doing", "how u doin", "hows it going"], ["im good ! how are you ?", "i am great! you?", "im good, just glad to be talking with you !!"]],
     [["so cool", "wow", "this is sick", "this is cool", "amazing", "woah"], ["<img class='emoji' src='./emojis/yay.gif'>"]],
     [["who made this", "who made u", "who created this", "who created u"], ["take a guess..", "probably the person who created the rest of the website"]],
-    [["tell me about u", "tell me about urself", "what do u like to do", "what do u like doing", "what u like doing", "hobbies", "tell me about froggy", "your spare time"], ["i like making frog sounds and whittling"]],
+    [["tell me about u", "tell me about urself", "what do u like to do", "what do u like doing", "what u like doing", "hobbies", "tell me about froggy", "ur spare time"], ["i like making frog sounds and whittling"]],
     [["i love u", "u are so cute", "u are cute"], ["of course you do ! im froggy", "i love you too <3"]],
     [["are u a frog", "how is frog life", "how is life as a frog", "hows life as a frog", "whats frog life like"], ["frog life > human life", "being a frog is great! i <u>never</u> pay taxes"]],
     [["tax fraud"], ["i love tax fraud <3"]],
