@@ -36,6 +36,11 @@ body:has(#night:checked)>.weather {
     background-image: url("images/pond/night-sky.png");
 }
 
+body:has(#rain:checked):not(:has(#night:checked))>celestial-body {
+    background-image: unset !important;
+}
+
+
 body:has(#rain:checked) {
     filter: hue-rotate(15deg) saturate(0.8);
 }
