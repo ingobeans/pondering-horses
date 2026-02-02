@@ -4,10 +4,10 @@ body {
 }
 
 body {
-    background-image: url("images/pond/pond.gif"), url("images/pond/sidepond.png");
-    background-repeat: no-repeat, repeat-x;
-    background-size: 1200px;
-    background-position: bottom;
+    background-image: url("images/pond/pond.gif"), url("images/pond/sidepond.png"), url("images/pond/clouds.gif");
+    background-repeat: no-repeat, repeat-x, repeat-x;
+    background-size: 1200px, 1200px, 2400px;
+    background-position: bottom, bottom, top;
     min-width: 1000px;
 
     --pondY: calc(100vh - 400px);
