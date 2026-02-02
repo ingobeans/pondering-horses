@@ -86,12 +86,14 @@ function getQuestionType(text) {
 }
 
 function generateResponse(text) {
+    // handle important special case
     if (text.includes(":3")) {
         return ":3"
     }
 
     text = preprocessText(text);
 
+    // check for phrases
     for (let phrase of PHRASES) {
         for (let variant of phrase[0]) {
             if (containsPhrase(text, variant)) {
@@ -100,8 +102,10 @@ function generateResponse(text) {
         }
     }
 
+    // check for questions
     let [type, subject] = getQuestionType(text);
     if (type != null) {
+        // query knowledge base
         for (let entry of KNOWLEDGE[type]) {
             for (let subjectName of entry[0]) {
                 if (subject == subjectName || subjectName == "*" || subject.includes(subjectName)) {
@@ -110,7 +114,6 @@ function generateResponse(text) {
             }
         }
     }
-
     return "ribbit"
 }
 
@@ -150,6 +153,7 @@ const QUESTION_TYPE_REGEXES = {
         /what is the ([a-z ]*)/,
         /whats the [a-z]* of the ([a-z ]*)/,
         /whats the ([a-z ]*)/,
+        /tell me about ([a-z ]*)/,
     ],
     "userFacts": [
         /i like ([a-z ]*)/,
@@ -165,6 +169,8 @@ const QUESTION_TYPE_REGEXES = {
         /im ([a-z ]*)/,
         /my name is ([a-z ]*)/,
         /i feel like ([a-z ]*)/,
+        /i just feel like ([a-z ]*)/,
+        /i had a ([a-z ]*)/,
     ]
 }
 
@@ -229,6 +235,7 @@ const PHRASES = [
     [["tax fraud"], ["i love tax fraud <3"]],
     [["vim", ["emacs better"]]],
     [["emacs", ["vim better"]]],
+    [["what can u do", "what do u do", "what can u say", "can i speak to u"], ["you can speak to me like any other frog! but my brain is kind of hollow so sometimes i struggle to understand, but i do my best."]],
     [["any brothers or sisters", "u have any family", "u have family", "u have friends", "u have any friends"], ["my frog hive consists of over 200 fellow frogs !"]],
     [["ur pronouns"], ["just refer to me by name"]],
     [["doctor who"], "omg i love that show"],
@@ -237,5 +244,8 @@ const PHRASES = [
     [["u think of toads"], ["toads are like frogs but big and lumpy.", "frogs are way cooler (in my humble opinion)"]],
     [["how do i"], ["by believing in yourself !"]],
     [["life is hard"], ["but you are a champion !!"]],
-    [["lol", "hihi", "haha"], ["hihi"]],
+    [["lol", "hihi", "haha", "hehe", "lmfao", "lmao", "rofl", "xd"], ["hihi"]],
+    [["me too", "same"], ["mm"]],
+    [["say something funny", "say something interesting", "tell me something funny", "make me laugh", "tell a joke", "say a joke"], ["a frog walks into a bar. the bartender says: 'why so froggy?'"]],
+    [["say something"], ["blorp"]],
 ];
