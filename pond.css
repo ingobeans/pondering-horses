@@ -40,7 +40,6 @@ body:has(#rain:checked):not(:has(#night:checked))>celestial-body {
     background-image: unset !important;
 }
 
-
 body:has(#rain:checked) {
     filter: hue-rotate(15deg) saturate(0.8);
 }
@@ -168,6 +167,24 @@ creatures>*:hover {
     margin-left: -10px;
     margin-top: -10px;
     rotate: 5deg;
+}
+
+body:has(#rain:checked)>creatures>*>umbrella {
+    background-image: url("images/pond/umbrella.png");
+}
+
+umbrella {
+    --size: 33px;
+    background-repeat: no-repeat, repeat-x;
+    background-size: calc(var(--size) / (192/1200));
+    width: calc(var(--size) / (192/1200));
+    height: calc(var(--size) / (192/1200));
+    display: block;
+    cursor: pointer;
+    margin-top: -100px;
+    margin-left: -60px;
+    position: absolute;
+    z-index: 3;
 }
 
 pink {
