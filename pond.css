@@ -1,0 +1,49 @@
+html,
+body {
+    background-color: #36c5f4;
+}
+
+body {
+    background-image: url("images/pond/pond.gif"), url("images/pond/sidepond.png");
+    background-repeat: no-repeat, repeat-x;
+    background-size: 1200px;
+    background-position: bottom;
+    min-width: 1000px;
+
+    --pondY: calc(100vh - 400px);
+    --pondX: calc(max(100vw, 1000px) / 2 - 500px);
+    --pondXEnd: calc(max(100vw, 1000px) / 2 + 350px);
+}
+
+creatures>* {
+    background-repeat: no-repeat, repeat-x;
+    background-size: calc(var(--size) / (192/1200));
+    width: calc(var(--size) / (192/1200));
+    height: calc(var(--size) / (192/1200));
+    display: block;
+    position: absolute;
+}
+
+pink {
+    background-image: url("images/pond/pink.png");
+    top: calc(var(--pondY) + 120px);
+    left: var(--pondX);
+}
+
+orange {
+    background-image: url("images/pond/orange.png");
+    top: calc(var(--pondY) + 60px);
+    left: calc(var(--pondX) + 120px);
+}
+
+purple {
+    background-image: url("images/pond/purple.png");
+    top: calc(var(--pondY) - 20px);
+    left: 50%;
+}
+
+cyan {
+    background-image: url("images/pond/cyan.png");
+    top: calc(var(--pondY) + 60px);
+    left: calc(var(--pondXEnd) + 60px);
+}
