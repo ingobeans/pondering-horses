@@ -15,6 +15,40 @@ body {
     --pondXEnd: calc(max(100vw, 1000px) / 2 + 350px);
 }
 
+.sign {
+    --size: 58px;
+    background-repeat: no-repeat, repeat-x;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    background-image: url("images/pond/sign.png");
+    background-size: calc(var(--size) / (192/1200));
+    width: calc(var(--size) / (192/1200));
+    height: calc(var(--size) / (192/1200));
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: -50px;
+    left: 0;
+    transform-origin: top center;
+    animation-timing-function: ease;
+}
+
+@keyframes hover-sign {
+
+    0%,
+    100% {
+        rotate: 0deg;
+    }
+
+    50% {
+        rotate: 10deg;
+    }
+}
+
+.sign:hover {
+    animation: hover-sign 400ms 1;
+}
+
 creatures>* {
     background-repeat: no-repeat, repeat-x;
     background-size: calc(var(--size) / (192/1200));
