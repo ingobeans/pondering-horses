@@ -17,27 +17,40 @@ body {
     filter: hue-rotate(0deg);
 }
 
-body>input {
+.settings {
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: 10;
 }
 
-body:has(input:checked) {
+html:has(#night:checked),
+body:has(#night:checked) {
+    background-color: black;
+}
+
+body:has(#night:checked)>.weather {
+    background-image: unset !important;
+}
+
+body:has(#rain:checked) {
     filter: hue-rotate(15deg) saturate(0.8);
 }
 
-body:has(input:checked)>overlay {
+body:has(#rain:checked)>overlay {
     background-color: rgba(35, 35, 66, 0.65);
 }
 
-body:has(input:checked)>.weather {
+body:has(#rain:checked)>.weather {
     background-image: url("images/pond/rainclouds.gif");
 }
 
-body:has(input:checked)>.over {
+body:has(#rain:checked)>.over {
     background-image: url("images/pond/rain.gif");
+}
+
+body:has(#night:checked) {
+    background-image: url("images/pond/pond-night.gif"), url("images/pond/sidepond-night.png");
 }
 
 .weather {
