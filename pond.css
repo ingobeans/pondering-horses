@@ -14,7 +14,6 @@ body {
     --pondX: calc(max(100vw, 1000px) / 2 - 500px);
     --pondXEnd: calc(max(100vw, 1000px) / 2 + 350px);
     overflow: hidden;
-    filter: hue-rotate(0deg);
 }
 
 .settings {
@@ -30,7 +29,7 @@ body:has(#night:checked) {
 }
 
 body:has(#night:checked)>.weather {
-    background-image: unset !important;
+    background-image: url("images/pond/night-sky.png");
 }
 
 body:has(#rain:checked) {
@@ -61,7 +60,7 @@ body:has(#night:checked) {
     height: 100%;
     overflow: hidden;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
     background-image: url("images/pond/clouds.gif");
     background-repeat: repeat-x;
     background-size: 2400px;
