@@ -4,19 +4,78 @@ body {
 }
 
 body {
-    background-image: url("images/pond/pond.gif"), url("images/pond/sidepond.png"), url("images/pond/clouds.gif");
-    background-repeat: no-repeat, repeat-x, repeat-x;
-    background-size: 1200px, 1200px, 2400px;
-    background-position: bottom, bottom, top;
+    background-image: url("images/pond/pond.gif"), url("images/pond/sidepond.png");
+    background-repeat: no-repeat, repeat-x;
+    background-size: 1200px, 1200px;
+    background-position: bottom, bottom;
     min-width: 1000px;
 
     --pondY: calc(100vh - 400px);
     --pondX: calc(max(100vw, 1000px) / 2 - 500px);
     --pondXEnd: calc(max(100vw, 1000px) / 2 + 350px);
+    overflow: hidden;
+    filter: hue-rotate(0deg);
+}
+
+body>input {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+body:has(input:checked) {
+    filter: hue-rotate(15deg) saturate(0.8);
+}
+
+body:has(input:checked)>overlay {
+    background-color: rgba(35, 35, 66, 0.65);
+}
+
+body:has(input:checked)>.weather {
+    background-image: url("images/pond/rainclouds.gif");
+}
+
+body:has(input:checked)>.over {
+    background-image: url("images/pond/rain.gif");
+}
+
+.weather {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+    background-image: url("images/pond/clouds.gif");
+    background-repeat: repeat-x;
+    background-size: 2400px;
+    background-position: top;
+}
+
+.over {
+    z-index: 0 !important;
+    background-image: unset;
+    background-size: 1200px !important;
+}
+
+overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .sign {
     --size: 58px;
+    z-index: 10;
     background-repeat: no-repeat, repeat-x;
     background-color: rgba(0, 0, 0, 0);
     border: none;
