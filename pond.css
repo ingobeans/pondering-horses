@@ -22,6 +22,18 @@ creatures>* {
     height: calc(var(--size) / (192/1200));
     display: block;
     position: absolute;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+creatures>*:hover {
+    transition: 0.1s;
+    width: calc(var(--size) / (192/1200) * 1.2);
+    height: calc(var(--size) / (192/1200) * 1.2);
+    background-size: calc(var(--size) / (192/1200) * 1.2);
+    margin-left: -10px;
+    margin-top: -10px;
+    rotate: 5deg;
 }
 
 pink {
