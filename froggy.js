@@ -192,6 +192,7 @@ const KNOWLEDGE = {
         [["school", "biology", "chemistry", "physics", "math", "golgi"], ["imagine having school lmfao i just frog around all day haha nerd"]],
         [["microsoft"], ["microsoft more like lame-rosoft haha gottem"]],
         [["rust"], ["rust is best programming lang ever !!!!"]],
+        [["me"], ["you are pretty cool person =)"]],
         [["*"], ["i dont really have an opinion of that", "i dont have an opinion of that", "mm hard to say"]],
     ],
     "personalFacts": [
