@@ -114,6 +114,12 @@ function generateResponse(text) {
             }
         }
     }
+
+    // check for hihis and hahas
+    if (text.includes("haha") || text.includes("hihi")) {
+        return "hihi"
+    }
+
     return "ribbit"
 }
 
