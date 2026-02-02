@@ -28,6 +28,10 @@ body:has(#night:checked) {
     background-color: black;
 }
 
+body:has(#night:checked)>celestial-body {
+    background-image: url("images/pond/moon.png");
+}
+
 body:has(#night:checked)>.weather {
     background-image: url("images/pond/night-sky.png");
 }
@@ -118,6 +122,19 @@ overlay {
 
 .sign:hover {
     animation: hover-sign 400ms 1;
+}
+
+celestial-body {
+    display: block;
+    background-size: calc(55px / (192/1200));
+    width: calc(55px / (192/1200));
+    height: calc(55px / (192/1200));
+    position: absolute;
+    top: min(calc(var(--pondY) - 412px), 136px);
+    z-index: 2;
+    left: 50%;
+    background-image: url("images/pond/sun.png");
+    transform: translateX(-50%);
 }
 
 creatures>* {
