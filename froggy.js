@@ -249,7 +249,7 @@ const PHRASES = [
     [["hamburger"], ["burghammer"]],
     [["u think of toads"], ["toads are like frogs but big and lumpy.", "frogs are way cooler (in my humble opinion)"]],
     [["how do i"], ["by believing in yourself !"]],
-    [["life is hard"], ["but you are a champion !!"]],
+    [["life is hard", "life is rough", "life is tough"], ["but you are a champion !!"]],
     [["lol", "hihi", "haha", "hehe", "lmfao", "lmao", "rofl", "xd"], ["hihi"]],
     [["me too", "same"], ["mm"]],
     [["say something funny", "say something interesting", "tell me something funny", "make me laugh", "tell a joke", "say a joke"], ["a frog walks into a bar. the bartender says: 'why so froggy?'"]],
