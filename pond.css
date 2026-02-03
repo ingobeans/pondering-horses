@@ -155,7 +155,7 @@ overlay {
     display: block;
     position: absolute;
     cursor: pointer;
-    top: -50px;
+    top: -140px;
     left: 0;
     transform-origin: top center;
     animation-timing-function: ease;
