@@ -189,6 +189,7 @@ umbrella {
     margin-left: -60px;
     position: absolute;
     z-index: 3;
+    pointer-events: none;
 }
 
 pink {
