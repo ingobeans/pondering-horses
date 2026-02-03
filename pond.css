@@ -76,7 +76,7 @@ body:has(#night:checked) {
     height: 100%;
     overflow: hidden;
     pointer-events: none;
-    z-index: 0;
+    z-index: 3;
     background-image: url("images/pond/clouds.gif");
     background-repeat: repeat-x;
     background-size: 2400px;
@@ -143,7 +143,7 @@ celestial-body {
     height: calc(55px / (192/1200));
     position: absolute;
     top: min(calc(var(--pondY) - 412px), 136px);
-    z-index: 2;
+    z-index: 0;
     left: 50%;
     background-image: url("images/pond/sun.png");
     transform: translateX(-50%);
