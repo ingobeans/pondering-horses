@@ -32,11 +32,11 @@ body:has(#night:checked)>celestial-body {
     background-image: url("images/pond/moon.png");
 }
 
-body:has(#night:checked)>.weather {
+body:has(#night:checked)>.mainweather {
     background-image: url("images/pond/night-sky.png");
 }
 
-body:has(#night:checked):not(:has(#rain:checked))>.weather {
+body:has(#night:checked):not(:has(#rain:checked))>.mainweather {
     z-index: 0;
 }
 
@@ -60,7 +60,7 @@ body:has(#rain:checked):has(#night:checked)>overlay {
     background-color: rgba(35, 35, 66, 0.35);
 }
 
-body:has(#rain:checked)>.weather {
+body:has(#rain:checked)>.mainweather {
     background-image: url("images/pond/rainclouds.png");
 }
 
