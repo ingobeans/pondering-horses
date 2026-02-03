@@ -177,12 +177,11 @@ a:has(.sign) {
 }
 
 #time-counter {
-    /* display: none; */
+    display: none;
     position: absolute;
     bottom: 0;
     left: 2px;
     height: 2em;
-    display: flex;
 }
 
 #time-counter>span {
