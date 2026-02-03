@@ -90,7 +90,10 @@ body:has(#night:checked) {
 .over {
     z-index: 0 !important;
     background-image: unset;
-    background-size: 1200px !important;
+    background-size: 400px !important;
+    background-repeat: repeat;
+    opacity: 0.7;
+    background-position: bottom;
 }
 
 overlay {
