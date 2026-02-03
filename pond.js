@@ -1,13 +1,16 @@
 let timeElement = document.getElementById("time-counter").children[0];
-let time = localStorage.getItem("pondTime") | 0;
+let baseTime = localStorage.getItem("pondTime") | 0;
+let time = baseTime;
 
 let base = "time spent at the pond: ";
 
+let start = Date.now();
 
 // only update localStorage every 3 seconds or so
 let timeTilLocalstorage = 0;
 function trackTime() {
-    time += 1;
+    time = baseTime + (Date.now() - start) / 1000;
+
     timeTilLocalstorage -= 1;
     if (timeTilLocalstorage <= 0) {
         timeTilLocalstorage = 3;
@@ -15,7 +18,7 @@ function trackTime() {
     }
 
     // format time!!
-    let seconds = time;
+    let seconds = Math.floor(time);
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
     let days = Math.floor(hours / 24);
