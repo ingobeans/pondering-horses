@@ -19,7 +19,7 @@ body {
 .settings {
     --size: 43px;
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     right: 10px;
     z-index: 10;
     background-image: url("images/pond/settings.png");
