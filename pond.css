@@ -57,7 +57,7 @@ body:has(#rain:checked):has(#night:checked) {
 }
 
 body:has(#rain:checked):has(#night:checked)>overlay {
-    background-color: rgba(35, 35, 66, 0.35);
+    background-color: rgba(0, 0, 103, 0.36);
 }
 
 body:has(#rain:checked)>.mainweather {
