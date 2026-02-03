@@ -16,6 +16,27 @@ body {
     overflow: hidden;
 }
 
+body:has(#rain:checked) {
+    filter: hue-rotate(15deg) saturate(0.8);
+}
+
+body:has(#rain:checked):has(#night:checked) {
+    filter: hue-rotate(7deg) saturate(0.9);
+}
+
+.anti-hue-shift {
+    z-index: 500;
+}
+
+body:has(#rain:checked)>.anti-hue-shift {
+    filter: hue-rotate(-15deg) saturate(1.25);
+}
+
+body:has(#rain:checked):has(#night:checked)>.anti-hue-shift {
+    filter: hue-rotate(-7deg) saturate(1.1111111111);
+}
+
+
 .settings {
     --size: 43px;
     position: absolute;
@@ -93,16 +114,8 @@ body:has(#rain:checked):not(:has(#night:checked))>celestial-body {
     background-image: unset !important;
 }
 
-body:has(#rain:checked) {
-    filter: hue-rotate(15deg) saturate(0.8);
-}
-
 body:has(#rain:checked)>overlay {
     background-color: rgba(8, 8, 70, 0.52);
-}
-
-body:has(#rain:checked):has(#night:checked) {
-    filter: hue-rotate(7deg) saturate(0.9);
 }
 
 body:has(#rain:checked):has(#night:checked)>overlay {
@@ -157,9 +170,14 @@ overlay {
     background-color: rgba(0, 0, 0, 0);
 }
 
+a:has(.sign) {
+    position: absolute;
+    top: -140px;
+    left: 0;
+}
+
 .sign {
     --size: 58px;
-    z-index: 10;
     background-repeat: no-repeat, repeat-x;
     background-color: rgba(0, 0, 0, 0);
     border: none;
@@ -168,10 +186,7 @@ overlay {
     width: calc(var(--size) / (192/1200));
     height: calc(var(--size) / (192/1200));
     display: block;
-    position: absolute;
     cursor: pointer;
-    top: -140px;
-    left: 0;
     transform-origin: top center;
     animation-timing-function: ease;
 }
