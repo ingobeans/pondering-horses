@@ -26,6 +26,7 @@ body {
     background-size: calc(var(--size) / (192/1200));
     width: calc(var(--size) / (192/1200));
     height: calc(var(--size) / (192/1200));
+    transition: 0.1s;
 }
 
 .settings>input {
@@ -43,6 +44,20 @@ body {
     position: absolute;
     left: calc(14px / (192/1200));
     top: calc(12px / (192/1200))
+}
+
+.settings:has(#dropdown:checked) {
+    bottom: calc(0px - var(--size) / (192/1200));
+}
+
+#dropdown-label {
+    right: 0;
+    left: unset;
+    top: calc(-5px / (192/1200));
+    width: calc(7px / (192/1200));
+    height: calc(4px / (192/1200));
+    background-size: calc(7px / (192/1200));
+    background-image: url("images/pond/dropdown.png")
 }
 
 #night-label {
