@@ -1,0 +1,148 @@
+from distutils.dir_util import copy_tree
+import requests,sys,os,shutil,subprocess,re
+
+# a script to build some dynamically generated pages for this website!
+
+def get_games()->[[str,str,str]]:
+    url = "https://gnarmi.itch.io/"
+
+    try:
+        text = requests.get(url).text
+        text = text.split('<div class="column game_column"><div class="game_grid_widget base_widget user_game_grid">')[1]
+        items = []
+        for item in text.split('class="game_cell has_cover lazy_images"'):
+            if not "href" in item:
+                continue
+            url = item.split("href=\"")[1].split("\"")[0]
+            name = item.split("game_title")[1].split("href")[1].split(">")[1].split("<")[0]
+            desc = item.split("game_text")[1].split(">")[1].split("<")[0]
+            img_url = item.split("data-lazy_src=\"")[1].split("\"")[0]
+            
+            items.append([url,img_url,name,desc])
+        return items
+    except Exception as e:
+        print(e)
+        return []
+
+def replace_emojis(text:str)->str:
+    pattern = r":([a-z]*):"
+    sub = r"<img class='emoji' src='./emojis/\1.gif'>"
+    new = re.sub(pattern,sub,text)
+    return new
+
+def replaceHtmlLinks(text:str)->str:
+    pattern = r"\./([a-z/]*).html"
+    sub = r"./\1"
+    new = re.sub(pattern,sub,text)
+    new = new.replace("./index","./")
+    return new
+
+if "test" in sys.argv:
+    with open("index.html","r") as f:
+        g = f.read()
+    n = replace_emojis(g)
+    n = replaceHtmlLinks(n)
+    with open("test.html","w") as f:
+        f.write(n)
+    quit()
+
+if "bundle" in sys.argv:
+    print("bundling...")
+    if not os.path.isdir("temp"):
+        os.mkdir("temp")
+    else:
+        for item in os.listdir("temp"):
+            if item == ".git" or item == "temp":
+                continue
+            path = os.path.join("temp",item)
+            if os.path.isfile(path):
+                os.remove(path)
+            else:
+                shutil.rmtree(path)
+    for item in os.listdir():
+        if item == ".git" or item == "temp":
+            continue
+        path = os.path.join("temp",item)
+        if os.path.isfile(item):
+            shutil.copyfile(item,path)
+        else:
+            shutil.copytree(item,path)
+    os.chdir("temp")
+    subprocess.run(['python', 'build.py', "publish"])
+    shutil.make_archive("../bundle", 'zip', ".")
+    exit(0)
+
+# build games.html
+html = ""
+items = get_games()
+
+for item in items:
+    html += f'<game><div class="window-decoration">{item[0].split("/")[-1]}</div><a href="{item[0]}"><img src="{item[1]}"><p>{item[3]}</p></a></game>'
+
+# build index.html if publish build.
+# only intented to run for github actions
+if "publish" in sys.argv:
+    os.system("git reset origin/main --hard")
+
+    with open("games.html","w") as f:
+        f.write(html)
+    print("built games.html!")
+    with open("projects_template.html","r") as f:
+        projects_template = f.read()
+    with open("projects.html","w") as f:
+        f.write(projects_template.replace("<!-- insert.games -->",html))
+    print("built projects.html!")
+
+    print("publish flag set, removing debug lines!")
+    with open("index.html","r") as f:
+        text = f.read()
+    new = ""
+    for line in text.split("\n"):
+        if "publish.remove_line" in line:
+            continue
+        new += line + "\n"
+    with open("index.html","w") as f:
+        f.write(new)
+    print("built index.html!")
+
+    print("substituting emojis...")
+    for file in os.listdir():
+        if file.endswith(".html"):
+            with open(file,"r") as f:
+                g = f.read()
+            n = replace_emojis(g)
+            with open(file,"w") as f:
+                f.write(n)
+            print(file+"...",end="")
+    print("\nemoji substitution completed! :yay:")
+
+    print("replacing html links...")
+    for file in os.listdir():
+        if file.endswith(".html") or file.endswith(".js"):
+            with open(file,"r") as f:
+                g = f.read()
+            n = replaceHtmlLinks(g)
+            with open(file,"w") as f:
+                f.write(n)
+            print(file+"...",end="")
+    print("html links replacing done!")
+
+    # remove games.html from .gitignore
+    with open(".gitignore","r") as f:
+        gitignore = f.read()
+    newgitignore = ""
+    for line in gitignore.split("\n"):
+        if not "games.html" in line and not "projects.html" in line:
+            newgitignore += line +"\n"
+    with open(".gitignore","w") as f:
+        f.write(newgitignore)
+    print("removed games.html from .gitignore!")
+else:
+    with open("games.html","w") as f:
+        f.write(html)
+    print("built games.html!")
+    with open("projects_template.html","r") as f:
+        projects_template = f.read()
+    with open("projects.html","w") as f:
+        f.write(projects_template.replace("<!-- insert.games -->",html))
+    print("built projects.html!")

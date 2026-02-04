@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>the pond @ iris' website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pond.css">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="prefetch" href="./images/pond/checkbox_clicked.png">
+    <link rel="prefetch" href="./images/pond/rainclouds.png">
+    <link rel="prefetch" href="./images/pond/rain.gif">
+    <link rel="prefetch" href="./images/pond/umbrella.png">
+    <link rel="prefetch" href="./images/pond/moon.png">
+    <link rel="prefetch" href="./images/pond/night-sky.png">
+    <link rel="prefetch" href="./images/pond/pond-night.gif">
+    <link rel="prefetch" href="./images/pond/sidepond-night.png">
+</head>
+
+<body class="pond">
+    <overlay></overlay>
+
+    <div class="weather mainweather"></div>
+    <div class="weather over"></div>
+
+    <celestial-body></celestial-body>
+
+    <a href="./index.html" class="anti-hue-shift">
+        <button class="sign"></button>
+    </a>
+    <creatures>
+        <pink style="--size: 11px;">
+            <umbrella></umbrella>
+        </pink>
+        <orange style="--size: 13px;">
+            <umbrella></umbrella>
+        </orange>
+        <purple style="--size: 17px;">
+            <umbrella></umbrella>
+        </purple>
+        <cyan style="--size: 22px;">
+            <umbrella></umbrella>
+        </cyan>
+    </creatures>
+    <div class="settings anti-hue-shift">
+        <input id="dropdown" type="checkbox">
+        <label id="dropdown-label" for="dropdown"></label>
+
+        <input id="rain" type="checkbox">
+        <input id="night" type="checkbox">
+        <label id="rain-label" for="rain"></label><label id="night-label" for="night"></label>
+    </div>
+    <div id="time-counter"><span>blorp. here time will be shown.</span></div>
+    <script src="./pond.js"></script>
+</body>
+
+</html>

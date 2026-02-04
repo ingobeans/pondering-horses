@@ -1,0 +1,662 @@
+@font-face {
+    font-family: Aujournuit;
+    src: url(Aujournuit-Regular.otf);
+    /* from: https://gomakethings.com/better-font-loading-with-the-font-displayswap-property/
+    basically, without this, firefox (not chrome i think), will wait for the font to load before rendering the text,
+    rather than using the fallback font, which leaves big empty blocks for a second or so on first load.
+    */
+    font-display: swap;
+}
+
+html {
+    background-color: rgb(91, 28, 155);
+}
+
+html:has(.projects) {
+    background-color: rgb(28, 47, 155);
+}
+
+body {
+    background-color: #1C0037;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+    font-family: Aujournuit;
+    margin: 0;
+    min-height: 100vh;
+    /*! overflow-x: hidden; */
+    /*! background: #1C0037; */
+    background-image: url("images/background.png"), linear-gradient(325deg, rgb(28, 0, 55) 0%, rgb(91, 28, 155) 75%, rgb(235, 255, 139) 100%);
+}
+
+.projects {
+    background-image: url("images/background.png"), linear-gradient(-325deg, rgb(0, 35, 55) 0%, rgb(28, 47, 155) 45%, rgb(56, 169, 235) 100%);
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.noai {
+    display: inline-block;
+    /*! height: 49px; */
+    /*! margin-bottom: 20px; */
+}
+
+.noai>img {
+    box-shadow: none;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#biglogo {
+    box-shadow: none;
+    width: 100%;
+    max-width: 700px;
+    filter: drop-shadow(5px 5px 0 black);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+div:has(#splash) {
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#splash>a {
+    color: inherit;
+}
+
+#splash {
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1),
+        0px 0px 5px rgba(0, 0, 0, 1),
+        -1px -1px 0px rgba(0, 0, 0, 1);
+    font-size: 14px;
+    color: yellow;
+    position: absolute;
+    right: calc((100% - 900px) / 2 - 111px);
+    top: 134px;
+    rotate: 25deg;
+    animation: grow-animation 2.5s ease-in-out infinite;
+    padding: 6px;
+    margin: 0;
+    overflow: hidden;
+    z-index: 5;
+}
+
+@keyframes grow-animation {
+
+    0%,
+    100% {
+        transform: translate(30%, 0) scale(1.0);
+    }
+
+    50% {
+        /* transform: translate(30%, -45px); */
+        transform: translate(30%, -3px) scale(1.1);
+    }
+}
+
+div:has(.side-goblin) {
+    position: absolute;
+    top: 500px;
+    width: 100%;
+    height: 114px;
+    overflow-x: hidden;
+    pointer-events: none
+}
+
+.side-goblin {
+    position: absolute;
+    box-shadow: none;
+    display: inline;
+    right: calc((100% - 900px) / 2 - 111px);
+}
+
+/*
+Source - https://stackoverflow.com/a
+Posted by Vargr, modified by community. See post 'Timeline' for change history
+Retrieved 2025-12-10, License - CC BY-SA 4.0
+*/
+
+* {
+    image-rendering: optimizeSpeed;
+    /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;
+    /* Firefox                        */
+    image-rendering: -o-crisp-edges;
+    /* Opera                          */
+    image-rendering: -webkit-optimize-contrast;
+    /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;
+    /* Universal support since 2021   */
+    image-rendering: optimize-contrast;
+    /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;
+    /* IE8+                           */
+
+}
+
+hr {
+    color: white;
+}
+
+p,
+span {
+    font-size: 20px;
+}
+
+a {
+    color: #3FD300;
+    font-weight: bold;
+}
+
+b {
+    text-shadow: rgba(0, 0, 0, 0.9) 0px 0px 19px;
+    color: #3FD300;
+}
+
+.badge {
+    box-shadow: none !important;
+    width: 88px;
+    height: 31px;
+}
+
+.badge-container {
+    overflow: hidden;
+    padding: 20px;
+    margin-top: -35px;
+    margin-bottom: -20px;
+    margin-left: -20px;
+}
+
+.badge:hover {
+    transform: scale(1.2);
+}
+
+.thingy-of-note {
+    border-left: solid 1px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+pagering-link {
+    width: 161px;
+    height: 32px;
+    overflow: hidden;
+    padding-top: 1px;
+    display: inline-block;
+}
+
+#froggyContainer {
+    font-family: 'Trebuchet MS', sans-serif;
+    position: fixed;
+    right: 0;
+    z-index: 5;
+    bottom: 0;
+}
+
+.froggyMessage {
+    color: #3FD300
+}
+
+.froggyUserMessage {
+    text-align: right;
+}
+
+#froggyContainer>button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+#froggyChatMessages>img {
+    width: 76px;
+}
+
+#froggyChat {
+    background-color: black;
+    width: 250px;
+    height: 350px;
+    margin-right: 20px;
+    border: solid 2px white;
+}
+
+#froggyInput {
+    width: 245px;
+    font-family: inherit;
+    border: none;
+}
+
+#froggyChat>hr {
+    margin: 0;
+    padding: 0;
+}
+
+#froggyChatMessages {
+    background-color: rgb(20, 20, 20);
+    height: 290px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#froggyChatMessages>p {
+    margin: 0;
+    padding: 0;
+}
+
+#froggyChat>h2 {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#froggyChat>button {
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+    border: none;
+}
+
+#froggy {
+    width: 120px;
+    transition: 0.2s;
+    box-shadow: none;
+}
+
+#froggy:hover {
+    width: 150px;
+}
+
+.imgshadow {
+    box-shadow: none;
+    filter: drop-shadow(5px 5px 0 black);
+}
+
+.john {
+    width: min(728px, 100vw);
+    height: min(90px, 12.367vw);
+    background-color: #d9d9d9;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.icon {
+    box-shadow: none !important;
+    transform: translate(0, 11px);
+    margin-right: 5px;
+}
+
+iframe {
+    border: none;
+}
+
+/* https://www.madrasacademy.com/wave-text-animation-with-html-and-css/ */
+.wave {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 2lh;
+    transform: translate(0, 1lh);
+    font-size: 20px;
+}
+
+.wave span {
+    display: inline-block;
+    padding: 0;
+    animation: wave-animation 2.5s ease-in-out infinite;
+    transform: translateY(5px);
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes wave-animation {
+
+    0%,
+    100% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 1700px) {
+    .bubble {
+        display: inline-block;
+        position: unset !important;
+    }
+}
+
+.spread {
+    height: 197px;
+    width: 500px;
+    transform: translate(-139px, 10px);
+}
+
+.spread>*>img {
+    position: relative;
+    box-shadow: none;
+}
+
+.spread>*:hover>img {
+    scale: 1.1;
+    z-index: 44;
+}
+
+.spread> :first-child>img {
+    rotate: -10deg;
+    transform: translate(75px, 20px);
+}
+
+.spread> :last-child>img {
+    rotate: 10deg;
+    transform: translate(-75px, 20px);
+}
+
+#minesweeper-container {
+    display: grid;
+    background-color: rgb(42, 42, 44);
+    width: 100%;
+    height: 100%;
+}
+
+#minesweeper-container>div {
+    background-color: #bdbdbd;
+    width: 16px;
+    height: 16px;
+    outline: inset 1px black;
+    overflow: hidden;
+}
+
+#minesweeper-container>div>p {
+    padding: 0;
+    margin: 0;
+    transform: translateY(-4.3px);
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    pointer-events: none;
+}
+
+#minesweeper-text {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+#minesweeper-restart {
+    font: inherit;
+    color: black;
+    background-color: rgb(68, 68, 68);
+    float: right;
+    padding: 0;
+    margin: 0;
+    width: 23px;
+    transform: translateY(5px);
+    height: 23px;
+}
+
+
+#minesweeper-restart>p {
+    color: yellow;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    transform: translate(-6px, -13px);
+}
+
+#minesweeper-counter {
+    font-family: 'Trebuchet MS', sans-serif;
+    transform: translateY(5px);
+    float: right;
+    margin-right: 20px;
+}
+
+#minesweeper-container>div:has(p) {
+    background-color: rgb(150, 150, 153);
+    outline: solid 1px black;
+}
+
+.flag {
+    color: red;
+}
+
+.mineMine {
+    color: black;
+}
+
+.mine0 {
+    visibility: hidden;
+}
+
+.mine1 {
+    color: blue;
+}
+
+.mine2 {
+    color: green;
+}
+
+.mine3 {
+    color: red;
+}
+
+.mine4 {
+    color: darkblue;
+}
+
+.mine5 {
+    color: purple;
+}
+
+.mine6 {
+    color: orangered;
+}
+
+.bubble {
+    overflow: hidden;
+    color: black;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 90px;
+    width: 350px;
+    height: 260px;
+    background-image: url("images/bubble.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+game>a {
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+    width: 259px;
+}
+
+.window-box {
+    width: 100%;
+    max-width: 600px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    color: black;
+}
+
+.window-box>p {
+    width: calc(100% - 14px);
+    padding: 11px;
+    padding-top: 0;
+    margin-bottom: 0;
+}
+
+.window-box>p>a {
+    color: black;
+    background-color: #bfbfbf;
+    border-image: url("images/border98.png") 3 fill / 3px / 3px space;
+    padding: 3px;
+    text-decoration: none;
+}
+
+.window-box,
+game {
+    background-color: #bfbfbf;
+    border-image: url("images/border98.png") 3 fill / 3px / 3px space;
+}
+
+game {
+    width: 259px;
+    height: 370px;
+    display: block;
+
+    display: inline-block;
+    margin: 6px;
+    overflow: hidden;
+}
+
+.window-decoration {
+    height: 20px;
+    padding-left: 5px;
+    background-image: linear-gradient(-325deg, #00007a 0%, #2289ce 100%);
+    margin-bottom: 5px;
+    color: white;
+}
+
+game>a>img {
+    /*! height: 250px; */
+    width: 250px;
+    margin-left: 4px;
+    box-shadow: none;
+    border-image: url("images/border98alt.png") 3 fill / 3px / 3px space;
+}
+
+game>a>p {
+    padding: 11px;
+    padding-top: 7px;
+    padding-bottom: 0;
+    margin: 0;
+    width: calc(259px - 14px);
+}
+
+#games {
+    width: 100%;
+    height: 420px;
+}
+
+
+.game-container {
+    width: 100%;
+    max-width: calc(275px * 4);
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.games-button {
+    position: fixed;
+    top: 50%;
+    border-radius: 0;
+    padding: 16px;
+    font-family: inherit;
+    border: 0;
+    background-color: #62c8c8;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.games-button:hover {
+    background-color: #73ebeb;
+}
+
+body .games-button~.games-button {
+    right: 0;
+}
+
+img {
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+}
+
+.main {
+    background-color: darkviolet;
+}
+
+.box-container {
+    width: 100%;
+    max-width: 994px;
+    height: fit-content;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.small {
+    background-color: darkslategray;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.emoji {
+    box-shadow: none;
+    width: 25px;
+    transform: translateY(5px);
+
+    /* re-enable aliasing */
+
+    image-rendering: unset !important;
+    -ms-interpolation-mode: unset !important;
+}
+
+.microblog {
+    height: calc(100% - 3em);
+    overflow-y: auto;
+}
+
+post {
+    background-color: rgba(0, 0, 0, 0.151);
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+post>span {
+    font-size: smaller;
+}
+
+.right-boxes>.small {
+    background-color: darkslateblue;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.box {
+    /*! width: 100%; */
+    height: fit-content;
+    min-height: 500px;
+    max-width: 900px;
+    margin-bottom: 70px;
+
+    border: 10px solid transparent;
+    padding: 37px;
+    border-image: url("images/border.png") 30 round;
+    border-image-width: 37px;
+    box-shadow: 35px 35px 0px rgb(0, 0, 0);
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    font-style: italic;
+}

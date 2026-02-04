@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>iris' virtual website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+</head>
+
+<body>
+    <div style="display: none;">
+        <img id="snowflake" src="images/snowflake.png" width="30" height="30" />
+    </div>
+    <canvas id="canvas"></canvas>
+    <img src="images/logo.png" id="biglogo">
+    <div>
+        <h2 id="splash">
+            <noscript>you're not using javascript. i like that</noscript>
+        </h2>
+    </div>
+    <div id="froggyContainer">
+        <div id="froggyChat" style="display:none">
+            <h2>froggy</h2>
+            <button onclick="closeFroggy()">X</button>
+            <hr>
+            <div id="froggyChatMessages">
+                <img src="./images/froggy.png" class="imgshadow">
+                <p class="froggyMessage">> hello ! i am froggy</p>
+            </div>
+            <hr>
+            <input type="text" id="froggyInput">
+        </div>
+        <button onclick="clickFroggy()">
+            <img src="./images/froggy.png" id="froggy">
+        </button>
+    </div>
+    <noscript>
+        <style>
+            #froggyContainer {
+                display: none;
+            }
+        </style>
+    </noscript>
+    <div class="box-container">
+        <div class="main box">
+            <h1>hello and welcome to <u>MY PERSONAL WEBSITE</u></h1>
+            <hr>
+            <div>
+                <img style="margin-right: 30px;" src="images/card.png">
+                <img style="height: 131px; margin-right: 30px;" src="images/smoke.gif"
+                    title="yeah.. please dont smoke in here">
+                <a href="https://gnarmi.itch.io/gnobbler" style="margin-right: 30px;"><img title="Gnobbler - play it!!"
+                        style="height: 131px;margin-top: 0;" src="images/gnobbler.png">
+                </a>
+                <img style="height: 131px;" class="imgshadow" src="images/toadcan.png"
+                    title="a toad in a trashcan! can you believe it???">
+            </div>
+            <span>hi! i am <b>Iris</b>. this is my home on the</span>
+            <div class="wave">
+                <span style="--i: 0;"> </span><span style="--i: 0;">i</span><span style="--i: 1;">n</span><span
+                    style="--i: 2;">t</span><span style="--i: 3;">e</span><span style="--i: 4;">r</span><span
+                    style="--i: 5;">w</span><span style="--i: 6;">e</span><span style="--i: 7;">b</span>
+            </div>
+            <p>this is a place for fun and cool :yay:. if you came here looking for something unfun and uncool, you are
+                <em>deeply</em> lost.
+            </p>
+            <p>check out my <a href="./projects.html"><img alt="PROJECTS" src="images/projects.png" class="imgshadow"
+                        style="transform: translateY(5px);"></a> here!! also check out the <a href="./pond.html"><img
+                        alt="POND" src="images/pond.png" class="imgshadow" style="transform: translateY(5px);"></a></p>
+            <p class="thingy-of-note">i am currently working on a video game for hackclub's flavortown
+                called <a href="https://github.com/ingobeans/cowboy-tower">cowboy-tower</a>! its an action
+                platformer made in rust hwere you are cowboy !! you need to climb the tower and defeat the bosses to
+                reach the top!</p>
+
+            <hr>
+            <!-- publish.remove_line
+            <pagering-link theme="dark"></pagering-link>
+
+            <div class="noai">
+                <map name="noaimini13">
+                    <area href="https://baccyflap.com/noai" shape="poly"
+                        coords="0,1,0,18,20,18,20,30,67,30,67,18,76,18,76,1" target="_blank" alt="no ai webring"
+                        title="no ai webring">
+                    <area href="https://baccyflap.com/noai/?prv&s=csg" target="_top" shape="rect" coords="2,21,18,29"
+                        alt="previous" title="previous">
+                    <area href="https://baccyflap.com/noai/?rnd" target="_top" shape="rect" coords="79,5,85,15"
+                        alt="random" title="random">
+                    <area href="https://baccyflap.com/noai/?nxt&s=csg" target="_top" shape="rect" coords="69,21,85,29"
+                        alt="next" title="next">
+                </map>
+                <img usemap="#noaimini13" src="https://baccyflap.com/noai/miniwidget13.gif"
+                    alt="a black field showing the words THE NO AI WEBRING in gothic lettering, with the word NO in blood red. there are two slender arrows pointing left and right and one gray question mark (also gothic)">
+                <br>
+            </div>
+            publish.remove_line -->
+            <hr style="margin-bottom: 25px;">
+
+            <!-- BUTTONS!!!! -->
+            <div class="badge-container">
+                <a href="https://cubebrowse.com/"><img class="badge" src="images/bestview.gif"></a>
+                <a href="https://capybara.somnolescent.net/"><img class="badge" src="images/capybaraNOW.png"></a>
+                <img class="badge" src="images/chrmevil.gif" title="use firefox smh">
+                <img class="badge" src="images/javascript.png" title="dont do javascript, kids">
+                <a href="http://qntm.org/camtime"><img class="badge" src="images/camtime.png"
+                        alt="Ban time travel NOW"></a>
+                <a href="https://tetr.io/"><img class="badge" src="images/perfectclear.gif"></a>
+                <a href="https://github.com/jscher2000/dont-accept-webp"><img class="badge" src="images/WEBP.gif"></a>
+                <img class="badge" src="images/transnow.gif">
+                <a href="./void.html"><img class="badge" src="images/poweredbythevoid.gif"></a>
+                <a href="./pond.html"><img class="badge" src="./images/pond/button.png" title="VISIT THE POND."></a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img class="badge"
+                        src="images/gothtml.png"></a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img class="badge" src="images/css.gif"></a>
+                <a href="https://keepthefuturehuman.ai/"><img class="badge" src="images/antiai.png"></a>
+                <a href="https://didyouknowthathumansproduce500bathtubsofspitintheirlifetimes.tech/"><img class="badge"
+                        src="https://didyouknowthathumansproduce500bathtubsofspitintheirlifetimes.tech/bathtubs.gif"></a>
+                <a href="https://braindamage.tech"><img class="badge" src="https://braindamage.tech/braindamage.png"
+                        title="braindamage! i love it!"></a>
+                <img class="badge" src="images/happyny2026neo.gif" title="New years 2026! 
+I would say that there's no way 2026 is worse than 2025 at the very least, but honestly I think it might be even worse. Who knows? Maybe the world crashes and burns. That would be bad.
+                
+I do at least think this year will be personally more interesting than the last? I think I'm excited :>">
+                <a href="https://citrons.xyz/memetic-apioform-page"><img class="badge"
+                        src="images/apiopage88x31.png" /></a>
+            </div>
+            <!-- BUTTONS end -->
+
+            <p style="font-size: 14px; margin-bottom: 0;">like my website? feel free to add my button to yours!!</p>
+            <a href="https://ingobeans.github.io/pondering-horses/"><img class="badge"
+                    src="https://ingobeans.github.io/pondering-horses/images/irisbutton.png"></a>
+            <textarea style="width: 125px; height: 24px;"
+                readonly><a href="https://ingobeans.github.io/pondering-horses/"><img src="https://ingobeans.github.io/pondering-horses/images/irisbutton.png"></a></textarea>
+
+
+            <!-- john -->
+            <div class="john">
+                <!-- comment out when testing just so not to spam johnvertisements server with unnecessary requests -->
+
+                <!-- publish.remove_line
+                 <iframe src="https://john.citrons.xyz/embed?ref=gotlobotomy.tech" style="margin-left:auto;display:block;margin-right:auto;max-width:732px;width:100%;height:94px;border:none;"></iframe> 
+                publish.remove_line -->
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <img src="images/side-goblin.png" class="side-goblin">
+    </div>
+
+    <div class="box-container" style="display: flex;justify-content: space-between;flex-wrap: wrap;">
+        <div class="small box" style="width: 449px; height:500px;">
+            <h1 style="margin:0">thoughts / microblog</h1>
+            <hr>
+            <div class="microblog">
+                <post>
+                    added <a href="./pond.html">the pond</a>. check it out! its a cozy little place with silly little
+                    creatures !
+                    <br><span>3/02-2026</span>
+                </post>
+                <post>
+                    just got my framework 13 laptop!!!!!!!!!!!!!!!!! :yay::yay::yay:<br>
+                    have set it up with debian and it is SO COOL!!!!! like the coolest thing i own
+                    <br><span>29/01-2026</span>
+                </post>
+                <post>
+                    :yay: added emoji support!!! :yay:
+                    <br><span>28/01-2026</span>
+                </post>
+                <post>
+                    working on a game called <em>cowboy tower</em> right now btw!
+                    <br><span>28/01-2026</span>
+                </post>
+                <post>
+                    hi! this is my first post ! welcome to my website, have a look around, have fun!
+                    <br><span>28/01-2026</span>
+                </post>
+            </div>
+        </div>
+        <div class="right-boxes">
+            <div class="small box" style="width: 300px;height: 200px;min-height: 0;">
+                <h1>my accounts</h1>
+                <hr>
+                <a href="https://github.com/ingobeans"><img src="images/github.png" class="icon">ingobeans</a>
+                <br>
+                <a href="https://gnarmi.itch.io/"><img src="images/itch.png" class="icon">ingobeans</a>
+            </div>
+            <div class="small box" style="width: 300px;height: 185px;min-height: 0;background-color: darkmagenta;">
+                <marquee direction="down" width="100%" height="100%" behavior="alternate" class="outlined">
+                    <marquee behavior="alternate" id="dvd">
+                        <noscript>
+                            <img src="images/beans.gif" class="imgshadow" width="100" height="50">
+                        </noscript>
+                    </marquee>
+                </marquee>
+            </div>
+        </div>
+        <div class="small box" style="min-height: 0;">
+            <h2 id="minesweeper-text">minesweep</h2>
+            <button id="minesweeper-restart" onclick="resetGame()">
+                <p>☻</p>
+            </button>
+            <span id="minesweeper-counter"></span>
+            <div id="minesweeper-container" oncontextmenu="return false;">
+            </div>
+        </div>
+    </div>
+    <div class="bubble" style="top:10px;right:10px">
+        current obsessions:
+        <div class="spread">
+            <a href="https://open.spotify.com/album/5vkqYmiPBYLaalcmjujWxK"><img title="In Rainbows - Radiohead"
+                    src="images/inrainbows.png" width="150px"></a>
+            <a href="https://open.spotify.com/album/7aJuG4TFXa2hmE4z1yxc3n"><img
+                    title="HIT ME HARD AND SOFT - Billie Eilish" src="images/hmhas.png" width="150px"
+                    style="z-index: 2;"></a>
+            <a href="https://open.spotify.com/album/0MzJ4J7mJvXdyyDHHSjHEl"><img title="Kezia - Protest The Hero"
+                    src="images/kezia.png" width="150px"></a>
+        </div>
+    </div>
+    <script src="wah.js"></script>
+    <script src="minesweeper.js"></script>
+    <script src="snowflakes.js"></script>
+    <script src="froggy.js"></script>
+    <!-- publish.remove_line
+    <script src="https://pagering.gideon.sh/embed.js" defer></script>
+    publish.remove_line -->
+</body>
+
+</html>
