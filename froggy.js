@@ -220,7 +220,7 @@ const KNOWLEDGE = {
         [["school"], ["sometimes school can be really fun if youre lucky, but sometimes it can be really poop (forgive my language)"]],
         [["job", "employed"], ["imagine havign a job lmfao... i just frog around all day"]],
         [["disease", "a cold"], ["aww i hope u get better !"]],
-        [["*", "cool !", "thats nice", "mm i hear you", "yeah"]],
+        [["*"], ["cool !", "thats nice", "mm i hear you", "yeah"]],
     ],
     "userBeing": [
         [["happy", "glad", "good mood",], ["<img class='emoji' src='./emojis/yay.gif'> good for you!! if youre happy im happy <img class='emoji' src='./emojis/yay.gif'>"]],
