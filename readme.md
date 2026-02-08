@@ -13,6 +13,8 @@ made with raw html and css.
 - a windows98 inspired project page
 - the pond.
 - microblog
+- froggy
+
 (and moreee!!!!!)
 
 javascript is used for the background, minesweeper, draggable windows on the project page, and froggy, but is not necessary to have enabled. 
