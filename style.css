@@ -281,6 +281,12 @@ pagering-link {
     filter: drop-shadow(5px 5px 0 black);
 }
 
+.hack {
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 .john {
     width: min(728px, 100vw);
     height: min(90px, 12.367vw);
