@@ -282,7 +282,7 @@ pagering-link {
 }
 
 .hack {
-    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+    filter: drop-shadow(5px 5px black);
     margin-bottom: 20px;
     margin-top: 20px;
 }
