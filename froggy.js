@@ -204,8 +204,8 @@ const KNOWLEDGE = {
     ],
     "facts": [
         [["moon"], ["the moon has a radius of 1,737.5 km"]],
-        [["projects"], ["here is the <a href='./projects.html'>projects site</a>"]],
-        [["pond"], ["here is the <a href='./pond.html'>pond</a>"]],
+        [["projects"], ["here is the <a href='./projects'>projects site</a>"]],
+        [["pond"], ["here is the <a href='./pond'>pond</a>"]],
         [["toads", "toad"], ["toads are like frogs but big and lumpy."]],
         [["frogs", "frog"], ["a frog is the most beautiful thing in the world (in my humble opinion)"]],
         [["web browser", "webbrowser", "browser", "browsers"], ["my favorite web browser is <a href='https://github.com/ingobeans/toad'>TOAD</a> (even though i normally dont like toads)"]],
